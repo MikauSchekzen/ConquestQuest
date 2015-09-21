@@ -1,0 +1,125 @@
+{
+	"data": [
+		{
+			"resref": "human",
+			"text": {
+				"en": {
+					"noun": "Human",
+					"plural": "Humans",
+					"adjective": "Human"
+				}
+			},
+			"equipmentSlots": [
+				{
+					"type": "head",
+					"appearance": {
+						"depth": -15,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "chest",
+					"appearance": {
+						"depth": -20,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "legs",
+					"appearance": {
+						"depth": -10,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 6
+						}
+					}
+				},
+				{
+					"type": "hands",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "feet",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": 10,
+						"mirror": false,
+						"offset": {
+							"x": -9,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": 10,
+						"mirror": true,
+						"offset": {
+							"x": 9,
+							"y": 0
+						}
+					}
+				}
+			],
+			"body": {
+				"male": {
+					"atlas": "body_base",
+					"frame": "human_male.png"
+				},
+				"female": {
+					"atlas": "body_base",
+					"frame": "human_female.png"
+				}
+			}
+		}
+	]
+}

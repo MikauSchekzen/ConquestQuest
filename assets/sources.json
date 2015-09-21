@@ -1,0 +1,56 @@
+{
+	"atlases": [
+		{
+			"key": "body_base",
+			"url": {
+				"base": "assets/gfx/atlases/",
+				"image": "body_base.png",
+				"config": "body_base.json"
+			}
+		},
+		{
+			"key": "armor",
+			"url": {
+				"base": "assets/gfx/atlases/",
+				"image": "armor.png",
+				"config": "armor.json"
+			}
+		},
+		{
+			"key": "weapons",
+			"url": {
+				"base": "assets/gfx/atlases/",
+				"image": "weapons.png",
+				"config": "weapons.json"
+			}
+		}
+	],
+	"json": [
+		{
+			"key": "configRaces",
+			"url": "config/races.json"
+		},
+		{
+			"key": "configUnits",
+			"url": "config/units.json"
+		},
+		{
+			"key": "configItems",
+			"url": "config/items.json"
+		}
+	],
+	"audio": [
+		{
+			"key": "bgmTheme_BlackKnight",
+			"url": "assets/audio/bgm/theme_blackknight.ogg"
+		},
+		{
+			"key": "bgmTheme_Juno",
+			"url": "assets/audio/bgm/theme_juno.ogg"
+		},
+		{
+			"key": "bgmTheme_Lifell",
+			"url": "assets/audio/bgm/theme_lifell.ogg"
+		}
+	]
+}

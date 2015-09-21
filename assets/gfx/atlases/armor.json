@@ -1,0 +1,52 @@
+{
+"frames": [
+	{
+		"filename": "chest_chainmail.png",
+		"frame": {"x":0, "y":19, "w":16, "h":17},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":17},
+		"sourceSize": {"w":16,"h":17}
+	},
+	{
+		"filename": "chest_leather.png",
+		"frame": {"x":17, "y":0, "w":14, "h":9},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":14,"h":16},
+		"sourceSize": {"w":14,"h":16}
+	},
+	{
+		"filename": "feet_iron.png",
+		"frame": {"x":0, "y":10, "w":16, "h":8},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":8},
+		"sourceSize": {"w":16,"h":8}
+	},
+	{
+		"filename": "feet_plate.png",
+		"frame": {"x":0, "y":0, "w":16, "h":9},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
+		"sourceSize": {"w":16,"h":9}
+	},
+	{
+		"filename": "legs_leather.png",
+		"frame": {"x":17, "y":10, "w":12, "h":9},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":12,"h":9},
+		"sourceSize": {"w":12,"h":9}
+	},
+	{
+		"filename": "legs_plate.png",
+		"frame": {"x":17, "y":20, "w":12, "h":10},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
+		"sourceSize": {"w":12,"h":10}
+	}
+
+],
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 32, "h": 37},
+	"scale": "1"
+}
+}

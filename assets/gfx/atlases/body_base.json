@@ -1,0 +1,24 @@
+{
+"frames": [
+	{
+		"filename": "human_female.png",
+		"frame": {"x":23, "y":0, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	},
+	{
+		"filename": "human_male.png",
+		"frame": {"x":0, "y":0, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	}
+
+],
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 46, "h": 31},
+	"scale": "1"
+}
+}

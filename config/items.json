@@ -1,0 +1,132 @@
+{
+	"data": [
+		{
+			"resref": "armor_chainmail",
+			"slot": "chest",
+			"text": {
+				"en": {
+					"name": "Chain Mail"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "chest_chainmail.png"
+			}
+		},
+		{
+			"resref": "armor_leather",
+			"slot": "chest",
+			"text": {
+				"en": {
+					"name": "Leather Tunic"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "chest_leather.png"
+			}
+		},
+		{
+			"resref": "legs_mail",
+			"slot": "legs",
+			"text": {
+				"en": {
+					"name": "Mail Leggings"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "legs_plate.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "legs_leather",
+			"slot": "legs",
+			"text": {
+				"en": {
+					"name": "Leather Leggings"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "legs_leather.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "weapon_shortsword",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Short Sword"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "shortsword.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "weapon_hatchet",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Hatchet"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "hatchet.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "weapon_battleaxe",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Battle Axe"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "battleaxe.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "weapon_mace",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Mace"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "mace.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		}
+	]
+}

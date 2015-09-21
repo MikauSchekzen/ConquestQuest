@@ -1,0 +1,51 @@
+{
+	"data": [
+		{
+			"resref": "footman",
+			"race": "human",
+			"gender": "male",
+			"text": {
+				"en": {
+					"noun": "Footman",
+					"plural": "Footmen"
+				}
+			},
+			"baseGear": [
+				{
+					"item": "armor_chainmail"
+				},
+				{
+					"item": "legs_leather"
+				},
+				{
+					"item": "weapon_shortsword"
+				}
+			]
+		},
+		{
+			"resref": "berserker",
+			"race": "human",
+			"gender": "male",
+			"text": {
+				"en": {
+					"noun": "Berserker",
+					"plural": "Berserkers"
+				}
+			},
+			"baseGear": [
+				{
+					"item": "armor_leather"
+				},
+				{
+					"item": "legs_leather"
+				},
+				{
+					"item": "weapon_battleaxe"
+				},
+				{
+					"item": "weapon_battleaxe"
+				}
+			]
+		}
+	]
+}

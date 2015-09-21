@@ -1,0 +1,14 @@
+[
+	"src/helper_functions.js",
+	"src/pre.js",
+	"src/classes/data/baseitem.js",
+	"src/classes/data/race.js",
+	"src/classes/data/baseunit.js",
+	"src/classes/game/item.js",
+	"src/classes/game/unit.js",
+	"src/classes/gui/gui.js",
+	"src/states/state_boot.js",
+	"src/states/state_game.js",
+	"src/game.js",
+	"src/gamemanager.js"
+]

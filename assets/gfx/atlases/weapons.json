@@ -1,0 +1,38 @@
+{
+"frames": [
+	{
+		"filename": "battleaxe.png",
+		"frame": {"x":0, "y":0, "w":11, "h":22},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":14,"h":34},
+		"sourceSize": {"w":14,"h":34}
+	},
+	{
+		"filename": "hatchet.png",
+		"frame": {"x":22, "y":0, "w":7, "h":15},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":20},
+		"sourceSize": {"w":10,"h":20}
+	},
+	{
+		"filename": "mace.png",
+		"frame": {"x":12, "y":0, "w":9, "h":20},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":30},
+		"sourceSize": {"w":10,"h":30}
+	},
+	{
+		"filename": "shortsword.png",
+		"frame": {"x":22, "y":16, "w":6, "h":19},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":28},
+		"sourceSize": {"w":6,"h":28}
+	}
+
+],
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 30, "h": 36},
+	"scale": "1"
+}
+}

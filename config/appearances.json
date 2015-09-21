@@ -1,0 +1,14 @@
+{
+	"data": [
+		{
+			"resref": "footman",
+			"body": {
+				"atlas": "body_base",
+				"frame": "human_male.png"
+			},
+			"components": [
+				
+			]
+		}
+	]
+}
