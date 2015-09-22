@@ -8,31 +8,73 @@
 		"sourceSize": {"w":14,"h":34}
 	},
 	{
+		"filename": "halberd.png",
+		"frame": {"x":12, "y":0, "w":10, "h":32},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":34},
+		"sourceSize": {"w":10,"h":34}
+	},
+	{
 		"filename": "hatchet.png",
-		"frame": {"x":22, "y":0, "w":7, "h":15},
+		"frame": {"x":10, "y":33, "w":7, "h":15},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":20},
 		"sourceSize": {"w":10,"h":20}
 	},
 	{
 		"filename": "mace.png",
-		"frame": {"x":12, "y":0, "w":9, "h":20},
+		"frame": {"x":23, "y":0, "w":9, "h":20},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":30},
 		"sourceSize": {"w":10,"h":30}
 	},
 	{
+		"filename": "scimitar.png",
+		"frame": {"x":0, "y":23, "w":9, "h":21},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":13,"h":36},
+		"sourceSize": {"w":13,"h":36}
+	},
+	{
 		"filename": "shortsword.png",
-		"frame": {"x":22, "y":16, "w":6, "h":19},
+		"frame": {"x":31, "y":33, "w":6, "h":19},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":28},
 		"sourceSize": {"w":6,"h":28}
+	},
+	{
+		"filename": "spear.png",
+		"frame": {"x":41, "y":0, "w":5, "h":31},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":5,"h":34},
+		"sourceSize": {"w":5,"h":34}
+	},
+	{
+		"filename": "staff.png",
+		"frame": {"x":33, "y":0, "w":7, "h":32},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":8,"h":36},
+		"sourceSize": {"w":8,"h":36}
+	},
+	{
+		"filename": "staff2.png",
+		"frame": {"x":23, "y":21, "w":7, "h":31},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":34},
+		"sourceSize": {"w":10,"h":34}
+	},
+	{
+		"filename": "wand.png",
+		"frame": {"x":38, "y":33, "w":5, "h":18},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":25},
+		"sourceSize": {"w":6,"h":25}
 	}
 
 ],
 "meta": {
 	"image": "sprites.png",
-	"size": {"w": 30, "h": 36},
+	"size": {"w": 47, "h": 53},
 	"scale": "1"
 }
 }

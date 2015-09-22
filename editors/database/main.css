@@ -1,0 +1,25 @@
+#sidebar {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 160px;
+	height: 560px;
+	border: 3px solid black;
+}
+
+#content {
+	position: absolute;
+	top: 10px;
+	left: 180px;
+	width: 600px;
+	height: 560px;
+	border: 3px solid black;
+}
+
+.sidebarButton {
+	position: relative;
+	top: 5px;
+	left: 10px;
+	width: 140px;
+	height: 30px;
+}

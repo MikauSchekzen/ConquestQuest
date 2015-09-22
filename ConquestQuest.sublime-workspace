@@ -15,6 +15,78 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/game.js",
+			"settings":
+			{
+				"buffer_size": 164,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/states/state_game.js",
+			"settings":
+			{
+				"buffer_size": 190,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/items.json",
+			"settings":
+			{
+				"buffer_size": 1897,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/races.json",
+			"settings":
+			{
+				"buffer_size": 1806,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/unit.js",
+			"settings":
+			{
+				"buffer_size": 3660,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/pre.js",
+			"settings":
+			{
+				"buffer_size": 229,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/baseitem.js",
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/item.js",
+			"settings":
+			{
+				"buffer_size": 739,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/baseunit.js",
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -23,10 +95,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "install",
+		"height": 127.0,
+		"last_filter": "javasc",
 		"selected_items":
 		[
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -48,7 +128,7 @@
 				"Set Syntax: AutoHotkey"
 			]
 		],
-		"width": 416.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -68,9 +148,44 @@
 	},
 	"expanded_folders":
 	[
+		"/D/Projects/Phaser/ConquestQuest",
+		"/D/Projects/Phaser/ConquestQuest/assets",
+		"/D/Projects/Phaser/ConquestQuest/assets/gfx",
+		"/D/Projects/Phaser/ConquestQuest/assets/gfx/atlases",
+		"/D/Projects/Phaser/ConquestQuest/config",
+		"/D/Projects/Phaser/ConquestQuest/lib",
+		"/D/Projects/Phaser/ConquestQuest/src",
+		"/D/Projects/Phaser/ConquestQuest/src/classes",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/data",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/gui",
+		"/D/Projects/Phaser/ConquestQuest/src/states"
 	],
 	"file_history":
 	[
+		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/storage.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/index.html",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/sidebar.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/main.css",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/main.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/package.json",
+		"/D/Projects/Phaser/ConquestQuest/config/units.json",
+		"/D/Projects/Phaser/ConquestQuest/assets/sources.json",
+		"/D/Projects/Phaser/ConquestQuest/sources.json",
+		"/D/Projects/Phaser/ConquestQuest/src/pre.js",
+		"/D/Projects/Phaser/ConquestQuest/src/states/state_boot.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/data/race.js",
+		"/D/Projects/Phaser/ConquestQuest/src/helper_functions.js",
+		"/D/Projects/Phaser/ConquestQuest/Gruntfile.js",
+		"/D/Projects/Phaser/ConquestQuest/index.html",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/components/appearance.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/gui/gui.js",
+		"/D/Projects/Phaser/ConquestQuest/config/appearances.json",
+		"/D/Projects/Phaser/ConquestQuest/assets/gfx/atlases/body_base.json",
+		"/D/Projects/Phaser/ConquestQuest/main.js",
+		"/D/Projects/Phaser/ConquestQuest/src/gamemanager.js",
+		"/D/Projects/Phaser/ConquestQuest/package.json",
+		"/D/Projects/Phaser/ConquestQuest/ConquestQuest.sublime-project",
 		"/D/Projects/Phaser/Lem/src/classes/cursor.js",
 		"/D/Projects/Phaser/Lem/src/gamemanager.js",
 		"/D/Projects/Phaser/Lem/src/classes/gamelabel.js",
@@ -175,30 +290,7 @@
 		"/D/vids/Streams/yarr_stream.m3u8",
 		"/D/Projects/Phaser/Meow/index.html",
 		"/D/Projects/Phaser/Meow/compile.rb",
-		"/D/Projects/Phaser/Meow/Meow.sublime-project",
-		"/D/Projects/Phaser/Meow/src/main.coffee",
-		"/D/Projects/Phaser/Meow/src/bootstate.coffee",
-		"/D/Projects/Phaser/Meow/compile.sh",
-		"/D/Projects/Phaser/Meow/main.js",
-		"/D/Projects/Phaser/Meow/package.json",
-		"/D/Projects/Phaser/Meow/lib/states/menustate.js",
-		"/D/Projects/Phaser/Meow/lib/gamelib.js",
-		"/D/sandbox/Games 3/Alice in Harlotland/娼婦さん御一行！/Game.ini",
-		"/D/Projects/Phaser/Meow/lib/game.js",
-		"/D/Projects/Phaser/test/test.sublime-project",
-		"/D/Projects/Phaser/Meow/compile_nwjs.bat",
-		"/D/Projects/Phaser/Meow/compile.bat",
-		"/D/lib/sprites/Lost Vikings/Enemies/32902.png.txt",
-		"/D/Games/OpenRA/OpenRA.Game.exe.config",
-		"/D/AHK/dev/CompileGameProfile.bat",
-		"/D/AHK/dev/CompileProfilers.bat",
-		"/D/AHK/dev/Profiler.ahk",
-		"/D/AHK/dev/ProfileCreator.ahk",
-		"/D/sandbox/Games 3/Rough Landing/Rough_Landing_1.41.rag",
-		"/D/AHK/furyspark/Engine - Keyboard.ahk",
-		"/D/AHK/furyspark/Engine_Postload.ahk",
-		"/D/AHK/furyspark/Engine_Preload.ahk",
-		"/D/AHK/furyspark/test.ahk"
+		"/D/Projects/Phaser/Meow/Meow.sublime-project"
 	],
 	"find":
 	{
@@ -217,6 +309,67 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"html",
+			"weapon_shortsword",
+			"armor_chainmail",
+			"Footmen",
+			"Footman",
+			"footman",
+			"hatchet",
+			"Hatchet",
+			"weapon_hatchet",
+			"hatchet",
+			"Hatchet",
+			"shortsword",
+			"weapon_shortsword",
+			"true",
+			"false",
+			"legs_leather",
+			"legs",
+			"slot",
+			"raceConfig",
+			"type",
+			"finger",
+			"hands",
+			"head",
+			"legs_leather",
+			"armor",
+			"legs",
+			"armor",
+			"chest",
+			"body",
+			"type",
+			"16",
+			"item",
+			"Sprite",
+			"units",
+			"configUnits",
+			"appearance",
+			"body_base",
+			"sprites",
+			"16",
+			"32",
+			"96",
+			"32",
+			"bgmTheme_BlackKnight",
+			"tempAppearance",
+			"components",
+			"type",
+			"appearance",
+			"resref",
+			"null",
+			"resref",
+			"Load",
+			"appearances",
+			"configAppearances",
+			"nextState",
+			"test",
+			");\n",
+			"test",
+			"preload",
+			"Sprite",
+			"1400",
+			"Lem",
 			"builder",
 			"false",
 			"cutout",
@@ -283,68 +436,7 @@
 			"speedMan",
 			"nuke",
 			"grid",
-			"levelGroup.lemmingsGroup",
-			"this.levelGroup.lemmingsGroup",
-			"lemmingsGroup",
-			"all",
-			"lemmingsGroup",
-			"all",
-			"lemmingsGroup",
-			"this.gameLabel =",
-			"markedFor",
-			"actions",
-			"guiGroup",
-			"text",
-			"guiGroup",
-			"grid",
-			"clearState",
-			"files",
-			"proceedEX",
-			"lemmingsGroup.",
-			"destroy",
-			"markedFor",
-			"this.remove",
-			"// Move UI",
-			"guiGroup",
-			"bringToTop",
-			"grid.image",
-			"false",
-			"image.visible",
-			"background",
-			"this.background",
-			"bg",
-			"tileSprite",
-			"tiledSprite",
-			"tilingsprite",
-			"name",
-			"markedFor",
-			"gameLabel",
-			"MARKED",
-			"markedFor",
-			"remove",
-			"explode",
-			"primitiveLayer",
-			".data",
-			"markedFor",
-			"GameLabel",
-			"gameLabel.remove",
-			"explode",
-			"levelGroup",
-			"lemmingsGroup",
-			"markedForRemoval",
-			"this.gameLabel",
-			"gameLabel",
-			"doorsGroup",
-			"add",
-			"game.add.group",
-			"new Phaser.Group",
-			"game",
-			"levelGroup",
-			"retryLevel",
-			"gameCamera",
-			"game =",
-			"remove",
-			"game ="
+			"levelGroup.lemmingsGroup"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -363,7 +455,7 @@
 			"*$",
 			"*"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -372,14 +464,276 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/states/state_game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "config/items.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1897,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								406,
+								406
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 1110.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "config/races.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								262,
+								262
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/classes/game/unit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3660,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3273,
+								3273
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1609.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/pre.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 229,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/classes/data/baseitem.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/classes/game/item.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								427,
+								427
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/classes/data/baseunit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -416,7 +770,7 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "Compile",
+	"pinned_build_system": "Electron",
 	"project": "ConquestQuest.sublime-project",
 	"replace":
 	{

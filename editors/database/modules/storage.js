@@ -1,0 +1,3 @@
+var Storage = {
+	dbObj: null
+};

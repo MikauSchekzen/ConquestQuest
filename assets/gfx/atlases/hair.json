@@ -1,0 +1,73 @@
+{
+"frames": [
+	{
+		"filename": "beard_long_black.png",
+		"frame": {"x":0, "y":15, "w":4, "h":6},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":4,"w":4,"h":10},
+		"sourceSize": {"w":4,"h":10}
+	},
+	{
+		"filename": "beard_long_blonde.png",
+		"frame": {"x":14, "y":11, "w":4, "h":6},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":4,"w":4,"h":10},
+		"sourceSize": {"w":4,"h":10}
+	},
+	{
+		"filename": "beard_long_red.png",
+		"frame": {"x":19, "y":11, "w":4, "h":6},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":4,"w":4,"h":10},
+		"sourceSize": {"w":4,"h":10}
+	},
+	{
+		"filename": "hair_long_black.png",
+		"frame": {"x":14, "y":0, "w":6, "h":10},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":4,"w":6,"h":14},
+		"sourceSize": {"w":6,"h":14}
+	},
+	{
+		"filename": "hair_long_blonde.png",
+		"frame": {"x":7, "y":11, "w":6, "h":11},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":3,"w":6,"h":14},
+		"sourceSize": {"w":6,"h":14}
+	},
+	{
+		"filename": "hair_long_red.png",
+		"frame": {"x":7, "y":0, "w":6, "h":10},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":4,"w":6,"h":14},
+		"sourceSize": {"w":6,"h":14}
+	},
+	{
+		"filename": "hair_short_black.png",
+		"frame": {"x":0, "y":10, "w":6, "h":4},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":7},
+		"sourceSize": {"w":6,"h":7}
+	},
+	{
+		"filename": "hair_short_blonde.png",
+		"frame": {"x":0, "y":5, "w":6, "h":4},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":7},
+		"sourceSize": {"w":6,"h":7}
+	},
+	{
+		"filename": "hair_short_red.png",
+		"frame": {"x":0, "y":0, "w":6, "h":4},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":7},
+		"sourceSize": {"w":6,"h":7}
+	}
+
+],
+"meta": {
+	"image": "sprites.png",
+	"size": {"w": 24, "h": 23},
+	"scale": "1"
+}
+}

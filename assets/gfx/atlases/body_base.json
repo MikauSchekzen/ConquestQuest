@@ -1,14 +1,42 @@
 {
 "frames": [
 	{
-		"filename": "human_female.png",
+		"filename": "elf_female.png",
 		"frame": {"x":23, "y":0, "w":22, "h":30},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
 		"sourceSize": {"w":22,"h":30}
 	},
 	{
+		"filename": "elf_male.png",
+		"frame": {"x":46, "y":0, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	},
+	{
+		"filename": "human_female.png",
+		"frame": {"x":23, "y":31, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	},
+	{
 		"filename": "human_male.png",
+		"frame": {"x":46, "y":31, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	},
+	{
+		"filename": "orc_female.png",
+		"frame": {"x":0, "y":31, "w":22, "h":30},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
+		"sourceSize": {"w":22,"h":30}
+	},
+	{
+		"filename": "orc_male.png",
 		"frame": {"x":0, "y":0, "w":22, "h":30},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":22,"h":30},
@@ -18,7 +46,7 @@
 ],
 "meta": {
 	"image": "sprites.png",
-	"size": {"w": 46, "h": 31},
+	"size": {"w": 69, "h": 62},
 	"scale": "1"
 }
 }
