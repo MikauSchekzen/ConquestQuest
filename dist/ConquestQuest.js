@@ -37,13 +37,31 @@ var GameData = {
 	classes: {},
 	config: {
 		races: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		},
 		items: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		},
 		units: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		}
 	},
 	getLangRef: function() {
@@ -97,15 +115,19 @@ GameData.classes.Item.prototype.constructor = GameData.classes.Item;
 GameData.classes.Unit = function(resref) {
 	Phaser.Group.call(this, game, 0, 0);
 	game.add.existing(this);
+
+	// Set basic data
 	this.resref = resref;
 
 	// Define properties
 	Object.defineProperty(this, "raceConfig", {get() {
 		return GameData.config.races.data[this.stats.race].config;
 	}});
+	Object.defineProperty(this, "baseUnit", {get() {
+		return GameData.config.units.data[this.resref];
+	}});
 
 	// Load config data
-	this.baseUnit = GameData.config.units.data[this.resref];
 	this.resetToBase();
 
 	// Set appearance
@@ -139,6 +161,15 @@ GameData.classes.Unit.prototype.resetToBase = function() {
 	for(a = 0;a < this.baseUnit.config.baseGear.length;a++) {
 		obj = this.baseUnit.config.baseGear[a];
 		this.equipItem(new GameData.classes.Item(obj.item));
+	}
+
+	// Set visual components
+	this.gfxComponents = [];
+	if(this.baseUnit.config.gfxComponents) {
+		for(a = 0;a < this.baseUnit.config.gfxComponents.length;a++) {
+			obj = this.baseUnit.config.gfxComponents[a];
+			this.gfxComponents.push(merge({}, obj));
+		}
 	}
 };
 
@@ -196,10 +227,17 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 			item.destroy();
 		}
 	}
+	if(this.appearance && this.appearance.components) {
+		for(a = 0;a < this.appearance.components.length;a++) {
+			item = this.appearance.components[a];
+			item.destroy();
+		}
+	}
 	// (Re-)initialize appearance
 	this.appearance = {
 		body: null,
-		gear: []
+		gear: [],
+		components: []
 	};
 
 	// Create body
@@ -231,6 +269,23 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 		}
 	}
 
+	// Create visual components
+	var comp, spr;
+	for(a = 0;a < this.gfxComponents.length;a++) {
+		comp = this.gfxComponents[a];
+		spr = game.add.sprite(
+			(GameData.tile.width * 0.5) + comp.offset.x,
+			(GameData.tile.height * 0.5) + comp.offset.y,
+			comp.atlas,
+			comp.frame
+		);
+		spr.anchor.set(0.5);
+		spr.depth = comp.depth;
+		this.add(spr);
+		zOrderingArray.push(spr);
+		this.appearance.components.push(spr);
+	}
+
 	// Z-ordering
 	zOrderingArray.sort(function(a, b) {
 		if(a.depth < b.depth) {
@@ -244,6 +299,170 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 	for(a = 0;a < zOrderingArray.length;a++) {
 		this.bringToTop(zOrderingArray[a]);
 	}
+};
+GameData.classes.Map = function(baseMap) {
+	// Extend Phaser.Group
+	Phaser.Group.call(this, game);
+
+	// Check if can exist with given data
+	if(!baseMap) {
+		return this.destroy();
+	}
+
+	// Add to update cycle
+	game.add.existing(this);
+
+	// Set basic data
+	this.baseMap = baseMap;
+	this.map = {
+		width: this.baseMap.width,
+		height: this.baseMap.height,
+		layers: {
+			units: new GameData.classes.Layer(this, this.baseMap.width, this.baseMap.height, -50)
+		}
+	};
+
+	// Define properties
+	Object.defineProperty(this, "state", {get() {
+		return game.state.getCurrentState();
+	}});
+
+	// Create a visual group for all the things directly on the map(units, buildings, tile layers, etc)
+	this.visualGroup = game.add.group();
+	this.visualGroup.scale.set(2);
+};
+GameData.classes.Map.prototype = Object.create(Phaser.Group.prototype);
+GameData.classes.Map.prototype.constructor = GameData.classes.Map;
+
+/*
+	method: update
+	Called every frame
+*/
+GameData.classes.Map.prototype.update = function() {
+	// Apply Z-ordering
+	this.zOrder();
+};
+
+/*
+	method: zOrder
+	Applies z-ordering of the layers
+*/
+GameData.classes.Map.prototype.zOrder = function() {
+	var a, layer, zGroup = [];
+	for(a in this.map.layers) {
+		layer = this.map.layers[a];
+		zGroup.push(layer);
+	}
+	// Sort according to depth
+	layer.sort(function(a, b) {
+		if(a.depth < b.depth) {
+			return 1;
+		}
+		else if(a.depth > b.depth) {
+			return -1;
+		}
+		return 0;
+	});
+	for(a = 0;a < zGroup.length;a++) {
+		layer = zGroup[a];
+		this.bringToTop(layer);
+	}
+};
+
+/*
+	method: spawnUnit(x, y, type)
+	Spawns a unit of the given type at the specified coordinates
+	Returns the unit that was created, or null if unsuccessful
+*/
+GameData.classes.Map.prototype.spawnUnit = function(x, y, type) {
+	if(!GameData.config.units.exists(type)) {
+		return null;
+	}
+	var unit = new GameData.classes.Unit(type);
+	var canPlace = this.map.layers.units.placeObject(x, y, unit);
+	if(!canPlace) {
+		unit.destroy();
+		return null;
+	}
+	return unit;
+};
+GameData.classes.Layer = function(map, width, height, depth) {
+	// Extend Phaser.Group
+	Phaser.Group.call(this, game);
+	// Add to update cycle
+	game.add.existing(this);
+
+	// Set up initial data
+	// Basic data
+	this.data = {
+		objects: [],
+		width: width,
+		height: height,
+		map: map
+	};
+	this.depth = depth;
+
+	// Fill in basic data
+	var a;
+	for(a = 0;a < this.width * this.height;a++) {
+		this.data.objects.push(null);
+	}
+};
+GameData.classes.Layer.prototype = Object.create(Phaser.Group.prototype);
+GameData.classes.Layer.prototype.constructor = GameData.classes.Layer;
+
+/*
+	method: getDataIndex(x, y)
+	Returns the index of this layer's data for the given x and y position
+*/
+GameData.classes.Layer.prototype.getDataIndex = function(x, y) {
+	return (x % this.data.width) + Math.floor(x / this.data.width);
+};
+
+/*
+	method: getObjectAt(x, y)
+	Returns the object at the specified position
+*/
+GameData.classes.Layer.prototype.getObjectAt = function(x, y) {
+	return this.data.objects[this.getDataIndex(x, y)];
+};
+
+/*
+	method: placeObject(x, y, object, force)
+	Places an object at the specified x and y position of the layer
+	'force' specifies whether the action should still go thorugh
+	 despite an object already being there on this layer,
+	 calling remove() on the old object(if any)
+	 Defaults to false
+	Returns whether successful
+*/
+GameData.classes.Layer.prototype.placeObject = function(x, y, object, force) {
+	// Set default parameters
+	if(force === undefined) {
+		force = false;
+	}
+	if(!object) {
+		return false;
+	}
+
+	// Get old object
+	var oldObj = this.getObjectAt(x, y);
+	if(oldObj) {
+		if(force && oldObj.remove) {
+			oldObj.remove();
+			oldObj = null;
+		}
+	}
+
+	// Place new object
+	if(!oldObj) {
+		var index = this.getDataIndex(x, y);
+		this.data[index] = object;
+		object.x = (x * GameData.tile.width);
+		object.y = (y * GameData.tile.height);
+		return true;
+	}
+	return false;
 };
 GameData.classes.GUI = function(x, y) {
 	Phaser.Group.call(this, game);
@@ -373,15 +592,25 @@ bootState.nextState = function() {
 	game.cache.removeJSON("assetSources");
 
 	// Go to next state
-	game.state.start("game");
+	game.load.onFileComplete.add(function parseLoad(progress, fileKey, success, totalLoadedFiles, totalFiles) {
+		if(totalLoadedFiles >= totalFiles) {
+			game.load.onFileComplete.remove(parseLoad, this);
+			game.state.start("game");
+		}
+	}, this);
+	game.load.json("map", "assets/maps/debug.json");
 };
 var gameState = new Phaser.State();
 
 gameState.create = function() {
-	var unit = new GameData.classes.Unit("footman");
-
-	var unit2 = new GameData.classes.Unit("berserker");
-	unit2.x = 64;
+	var mapData = game.cache.getJSON("map");
+	var map = new GameData.classes.Map(mapData);
+	if(map) {
+		map.spawnUnit(2, 3, "berserker");
+		map.spawnUnit(3, 3, "elven_mage");
+		map.spawnUnit(4, 5, "footman");
+		map.spawnUnit(5, 5, "footman");
+	}
 };
 var game = new Phaser.Game(960, 540, Phaser.AUTO, "content", null);
 

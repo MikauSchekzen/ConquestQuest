@@ -127,6 +127,91 @@
 					"y": 0
 				}
 			}
+		},
+		{
+			"resref": "weapon_spear",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Spear"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "spear.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "helm_horse",
+			"slot": "head",
+			"text": {
+				"en": {
+					"name": "Horse Helmet"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "helm_horse.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "shield_buckler",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Buckler"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "shield_buckler.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "robe_blue",
+			"slot": "chest",
+			"text": {
+				"en": {
+					"name": "Robe"
+				}
+			},
+			"appearance": {
+				"atlas": "armor",
+				"frame": "robe_blue.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
+		},
+		{
+			"resref": "staff_oak",
+			"slot": "limb",
+			"text": {
+				"en": {
+					"name": "Oak Staff"
+				}
+			},
+			"appearance": {
+				"atlas": "weapons",
+				"frame": "staff2.png",
+				"offset": {
+					"x": 0,
+					"y": 0
+				}
+			}
 		}
 	]
 }

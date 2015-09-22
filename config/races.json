@@ -13,11 +13,11 @@
 				{
 					"type": "head",
 					"appearance": {
-						"depth": -15,
+						"depth": -35,
 						"mirror": false,
 						"offset": {
 							"x": 0,
-							"y": 0
+							"y": -12
 						}
 					}
 				},
@@ -90,7 +90,7 @@
 				{
 					"type": "limb",
 					"appearance": {
-						"depth": 10,
+						"depth": -27,
 						"mirror": false,
 						"offset": {
 							"x": -9,
@@ -101,7 +101,7 @@
 				{
 					"type": "limb",
 					"appearance": {
-						"depth": 10,
+						"depth": -27,
 						"mirror": true,
 						"offset": {
 							"x": 9,
@@ -118,6 +118,248 @@
 				"female": {
 					"atlas": "body_base",
 					"frame": "human_female.png"
+				}
+			}
+		},
+		{
+			"resref": "elf",
+			"text": {
+				"en": {
+					"noun": "Elf",
+					"plural": "Elves",
+					"adjective": "Elven"
+				}
+			},
+			"equipmentSlots": [
+				{
+					"type": "head",
+					"appearance": {
+						"depth": -35,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": -12
+						}
+					}
+				},
+				{
+					"type": "chest",
+					"appearance": {
+						"depth": -20,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "legs",
+					"appearance": {
+						"depth": -10,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 6
+						}
+					}
+				},
+				{
+					"type": "hands",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "feet",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": -27,
+						"mirror": false,
+						"offset": {
+							"x": -9,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": -27,
+						"mirror": true,
+						"offset": {
+							"x": 9,
+							"y": 0
+						}
+					}
+				}
+			],
+			"body": {
+				"male": {
+					"atlas": "body_base",
+					"frame": "elf_male.png"
+				},
+				"female": {
+					"atlas": "body_base",
+					"frame": "elf_female.png"
+				}
+			}
+		},
+		{
+			"resref": "orc",
+			"text": {
+				"en": {
+					"noun": "Orc",
+					"plural": "Orcs",
+					"adjective": "Orcish"
+				}
+			},
+			"equipmentSlots": [
+				{
+					"type": "head",
+					"appearance": {
+						"depth": -35,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": -12
+						}
+					}
+				},
+				{
+					"type": "chest",
+					"appearance": {
+						"depth": -20,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "legs",
+					"appearance": {
+						"depth": -10,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 6
+						}
+					}
+				},
+				{
+					"type": "hands",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "feet",
+					"appearance": {
+						"depth": -25,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "finger",
+					"appearance": {
+						"depth": -5,
+						"mirror": false,
+						"offset": {
+							"x": 0,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": -27,
+						"mirror": false,
+						"offset": {
+							"x": -9,
+							"y": 0
+						}
+					}
+				},
+				{
+					"type": "limb",
+					"appearance": {
+						"depth": -27,
+						"mirror": true,
+						"offset": {
+							"x": 9,
+							"y": 0
+						}
+					}
+				}
+			],
+			"body": {
+				"male": {
+					"atlas": "body_base",
+					"frame": "orc_male.png"
+				},
+				"female": {
+					"atlas": "body_base",
+					"frame": "orc_female.png"
 				}
 			}
 		}

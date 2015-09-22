@@ -22,17 +22,11 @@ var Sidebar = {
 		return null;
 	},
 	RACES: 0,
-
-	clearContent: function() {
-		var elem = document.getElementById("content");
-		if(elem) {
-			while(elem.firstChild) {
-				elem.removeChild(elem.firstChild);
-			}
-		}
-	},
 	openRaces: function() {
-		console.log(this.currentDbObj);
+		this.currentPage = this.RACES;
+		if(Races) {
+			Races.create();
+		}
 	},
 
 	loadJSON: function(source, callback, callbackContext) {

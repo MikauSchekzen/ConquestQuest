@@ -4,13 +4,31 @@ var GameData = {
 	classes: {},
 	config: {
 		races: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		},
 		items: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		},
 		units: {
-			data: []
+			data: {},
+			exists: function(resref) {
+				if(this.data[resref]) {
+					return true;
+				}
+				return false;
+			}
 		}
 	},
 	getLangRef: function() {

@@ -23,6 +23,14 @@
 				"image": "weapons.png",
 				"config": "weapons.json"
 			}
+		},
+		{
+			"key": "hair",
+			"url": {
+				"base": "assets/gfx/atlases/",
+				"image": "hair.png",
+				"config": "hair.json"
+			}
 		}
 	],
 	"json": [

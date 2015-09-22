@@ -113,5 +113,11 @@ bootState.nextState = function() {
 	game.cache.removeJSON("assetSources");
 
 	// Go to next state
-	game.state.start("game");
+	game.load.onFileComplete.add(function parseLoad(progress, fileKey, success, totalLoadedFiles, totalFiles) {
+		if(totalLoadedFiles >= totalFiles) {
+			game.load.onFileComplete.remove(parseLoad, this);
+			game.state.start("game");
+		}
+	}, this);
+	game.load.json("map", "assets/maps/debug.json");
 };

@@ -6,6 +6,8 @@
 	"src/classes/data/baseunit.js",
 	"src/classes/game/item.js",
 	"src/classes/game/unit.js",
+	"src/classes/game/map.js",
+	"src/classes/game/layer.js",
 	"src/classes/gui/gui.js",
 	"src/states/state_boot.js",
 	"src/states/state_game.js",

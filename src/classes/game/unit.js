@@ -1,15 +1,19 @@
 GameData.classes.Unit = function(resref) {
 	Phaser.Group.call(this, game, 0, 0);
 	game.add.existing(this);
+
+	// Set basic data
 	this.resref = resref;
 
 	// Define properties
 	Object.defineProperty(this, "raceConfig", {get() {
 		return GameData.config.races.data[this.stats.race].config;
 	}});
+	Object.defineProperty(this, "baseUnit", {get() {
+		return GameData.config.units.data[this.resref];
+	}});
 
 	// Load config data
-	this.baseUnit = GameData.config.units.data[this.resref];
 	this.resetToBase();
 
 	// Set appearance
@@ -43,6 +47,15 @@ GameData.classes.Unit.prototype.resetToBase = function() {
 	for(a = 0;a < this.baseUnit.config.baseGear.length;a++) {
 		obj = this.baseUnit.config.baseGear[a];
 		this.equipItem(new GameData.classes.Item(obj.item));
+	}
+
+	// Set visual components
+	this.gfxComponents = [];
+	if(this.baseUnit.config.gfxComponents) {
+		for(a = 0;a < this.baseUnit.config.gfxComponents.length;a++) {
+			obj = this.baseUnit.config.gfxComponents[a];
+			this.gfxComponents.push(merge({}, obj));
+		}
 	}
 };
 
@@ -100,10 +113,17 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 			item.destroy();
 		}
 	}
+	if(this.appearance && this.appearance.components) {
+		for(a = 0;a < this.appearance.components.length;a++) {
+			item = this.appearance.components[a];
+			item.destroy();
+		}
+	}
 	// (Re-)initialize appearance
 	this.appearance = {
 		body: null,
-		gear: []
+		gear: [],
+		components: []
 	};
 
 	// Create body
@@ -133,6 +153,23 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 			zOrderingArray.push(item);
 			this.appearance.gear.push(item);
 		}
+	}
+
+	// Create visual components
+	var comp, spr;
+	for(a = 0;a < this.gfxComponents.length;a++) {
+		comp = this.gfxComponents[a];
+		spr = game.add.sprite(
+			(GameData.tile.width * 0.5) + comp.offset.x,
+			(GameData.tile.height * 0.5) + comp.offset.y,
+			comp.atlas,
+			comp.frame
+		);
+		spr.anchor.set(0.5);
+		spr.depth = comp.depth;
+		this.add(spr);
+		zOrderingArray.push(spr);
+		this.appearance.components.push(spr);
 	}
 
 	// Z-ordering

@@ -2,7 +2,7 @@
 "frames": [
 	{
 		"filename": "chest_breastplate.png",
-		"frame": {"x":0, "y":25, "w":16, "h":17},
+		"frame": {"x":18, "y":0, "w":16, "h":17},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":17},
 		"sourceSize": {"w":16,"h":17}
@@ -16,84 +16,105 @@
 	},
 	{
 		"filename": "chest_leather.png",
-		"frame": {"x":17, "y":9, "w":14, "h":9},
+		"frame": {"x":18, "y":43, "w":14, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":14,"h":16},
 		"sourceSize": {"w":14,"h":16}
 	},
 	{
 		"filename": "feet_iron.png",
-		"frame": {"x":17, "y":0, "w":16, "h":8},
+		"frame": {"x":0, "y":39, "w":16, "h":8},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":8},
 		"sourceSize": {"w":16,"h":8}
 	},
 	{
 		"filename": "feet_plate.png",
-		"frame": {"x":0, "y":15, "w":16, "h":9},
+		"frame": {"x":0, "y":49, "w":16, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":9},
 		"sourceSize": {"w":16,"h":9}
 	},
 	{
 		"filename": "helm_horse.png",
-		"frame": {"x":32, "y":9, "w":9, "h":9},
+		"frame": {"x":50, "y":24, "w":9, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":3,"y":0,"w":12,"h":10},
 		"sourceSize": {"w":12,"h":10}
 	},
 	{
 		"filename": "helm_iron.png",
-		"frame": {"x":34, "y":0, "w":6, "h":7},
+		"frame": {"x":18, "y":55, "w":6, "h":7},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":7},
 		"sourceSize": {"w":6,"h":7}
 	},
 	{
 		"filename": "helm_leather.png",
-		"frame": {"x":41, "y":0, "w":6, "h":7},
+		"frame": {"x":26, "y":55, "w":6, "h":7},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":6,"h":7},
 		"sourceSize": {"w":6,"h":7}
 	},
 	{
 		"filename": "legs_leather.png",
-		"frame": {"x":17, "y":19, "w":12, "h":9},
+		"frame": {"x":36, "y":24, "w":12, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":12,"h":9},
 		"sourceSize": {"w":12,"h":9}
 	},
 	{
 		"filename": "legs_plate.png",
-		"frame": {"x":17, "y":29, "w":12, "h":10},
+		"frame": {"x":34, "y":43, "w":12, "h":10},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":12,"h":10},
 		"sourceSize": {"w":12,"h":10}
 	},
 	{
+		"filename": "robe_blue.png",
+		"frame": {"x":36, "y":0, "w":16, "h":22},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":3,"w":16,"h":25},
+		"sourceSize": {"w":16,"h":25}
+	},
+	{
+		"filename": "robe_red.png",
+		"frame": {"x":18, "y":19, "w":16, "h":22},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":3,"w":16,"h":25},
+		"sourceSize": {"w":16,"h":25}
+	},
+	{
+		"filename": "robe_white.png",
+		"frame": {"x":0, "y":16, "w":16, "h":21},
+		"trimmed": true,
+		"spriteSourceSize": {"x":0,"y":0,"w":16,"h":21},
+		"sourceSize": {"w":16,"h":21}
+	},
+	{
 		"filename": "shield_buckler.png",
-		"frame": {"x":17, "y":40, "w":8, "h":9},
+		"frame": {"x":48, "y":52, "w":8, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":8,"h":9},
 		"sourceSize": {"w":8,"h":9}
 	},
 	{
 		"filename": "shield_buckler2.png",
-		"frame": {"x":26, "y":40, "w":8, "h":9},
+		"frame": {"x":54, "y":0, "w":8, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":8,"h":9},
 		"sourceSize": {"w":8,"h":9}
 	},
 	{
 		"filename": "shield_buckler3.png",
-		"frame": {"x":35, "y":35, "w":8, "h":9},
+		"frame": {"x":54, "y":11, "w":8, "h":9},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":8,"h":9},
 		"sourceSize": {"w":8,"h":9}
 	},
 	{
 		"filename": "shield_large.png",
-		"frame": {"x":30, "y":19, "w":10, "h":15},
+		"frame": {"x":48, "y":35, "w":10, "h":15},
 		"trimmed": true,
 		"spriteSourceSize": {"x":0,"y":0,"w":10,"h":15},
 		"sourceSize": {"w":10,"h":15}
@@ -102,7 +123,7 @@
 ],
 "meta": {
 	"image": "sprites.png",
-	"size": {"w": 48, "h": 50},
+	"size": {"w": 64, "h": 64},
 	"scale": "1"
 }
 }

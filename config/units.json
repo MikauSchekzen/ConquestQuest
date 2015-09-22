@@ -19,12 +19,18 @@
 				},
 				{
 					"item": "weapon_shortsword"
+				},
+				{
+					"item": "helm_horse"
+				},
+				{
+					"item": "shield_buckler"
 				}
 			]
 		},
 		{
 			"resref": "berserker",
-			"race": "human",
+			"race": "orc",
 			"gender": "male",
 			"text": {
 				"en": {
@@ -44,6 +50,69 @@
 				},
 				{
 					"item": "weapon_battleaxe"
+				}
+			]
+		},
+		{
+			"resref": "hunter",
+			"race": "elf",
+			"gender": "male",
+			"text": {
+				"en": {
+					"noun": "Hunter",
+					"plural": "Hunters"
+				}
+			},
+			"baseGear": [
+				{
+					"item": "armor_leather"
+				},
+				{
+					"item": "legs_leather"
+				},
+				{
+					"item": "weapon_spear"
+				}
+			],
+			"gfxComponents": [
+				{
+					"atlas": "hair",
+					"frame": "hair_long_blonde.png",
+					"offset": {
+						"x": 0,
+						"y": -12
+					},
+					"depth": -30
+				}
+			]
+		},
+		{
+			"resref": "elven_mage",
+			"race": "elf",
+			"gender": "female",
+			"text": {
+				"en": {
+					"noun": "Mage",
+					"plural": "Mages"
+				}
+			},
+			"baseGear": [
+				{
+					"item": "robe_blue"
+				},
+				{
+					"item": "staff_oak"
+				}
+			],
+			"gfxComponents": [
+				{
+					"atlas": "hair",
+					"frame": "hair_long_red.png",
+					"offset": {
+						"x": 0,
+						"y": -12
+					},
+					"depth": -30
 				}
 			]
 		}
