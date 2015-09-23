@@ -119,6 +119,9 @@
 					"atlas": "body_base",
 					"frame": "human_female.png"
 				}
+			},
+			"attributes": {
+
 			}
 		},
 		{
@@ -240,6 +243,11 @@
 					"atlas": "body_base",
 					"frame": "elf_female.png"
 				}
+			},
+			"attributes": {
+				"dexterity": 2,
+				"intelligence": 2,
+				"constitution": -2
 			}
 		},
 		{
@@ -361,6 +369,11 @@
 					"atlas": "body_base",
 					"frame": "orc_female.png"
 				}
+			},
+			"attributes": {
+				"strength": 2,
+				"constitution": 2,
+				"intelligence": -2
 			}
 		}
 	]

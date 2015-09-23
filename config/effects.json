@@ -1,0 +1,15 @@
+{
+	"data": [
+		{
+			"resref": "melee_attack",
+			"actions": [
+				{
+					"type": "damage",
+					"target": "target",
+					"chanceFormula": "50+(user.strength*2)-target.dexterity",
+					"effect_formula": "user.strength-target.armor"
+				}
+			]
+		}
+	]
+}

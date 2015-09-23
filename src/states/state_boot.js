@@ -29,6 +29,14 @@ bootState.loadAssets = function() {
 		a, curList, curAsset, loadingFiles = 0;
 
 	// Preload assets
+	// Images
+	curList = sources.images;
+	for(a = 0;a < curList.length;a++) {
+		loadingFiles++;
+		curAsset = curList[a];
+		game.load.image(curAsset.key, curAsset.url);
+	}
+
 	// Sprite atlases
 	curList = sources.atlases;
 	for(a = 0;a < curList.length;a++) {
@@ -92,6 +100,14 @@ bootState.parseConfigs = function() {
 	}
 	game.cache.removeJSON("configItems");
 
+	// Parse factions
+	cfg = game.cache.getJSON("configFactions");
+	for(a = 0;a < cfg.data.length;a++) {
+		data = cfg.data[a];
+		obj = new GameData.classes.Faction(data);
+	}
+	game.cache.removeJSON("configFactions");
+
 	// Parse units
 	cfg = game.cache.getJSON("configUnits");
 	for(a = 0;a < cfg.data.length;a++) {
@@ -99,6 +115,22 @@ bootState.parseConfigs = function() {
 		obj = new GameData.classes.BaseUnit(data);
 	}
 	game.cache.removeJSON("configUnits");
+
+	// Parse effects
+	cfg = game.cache.getJSON("configEffects");
+	for(a = 0;a < cfg.data.length;a++) {
+		data = cfg.data[a];
+		obj = new GameData.classes.Effect(data);
+	}
+	game.cache.removeJSON("configEffects");
+
+	// Parse abilities
+	cfg = game.cache.getJSON("configAbilities");
+	for(a = 0;a < cfg.data.length;a++) {
+		data = cfg.data[a];
+		obj = new GameData.classes.Ability(data);
+	}
+	game.cache.removeJSON("configAbilities");
 
 	// Start next state
 	this.nextState();
@@ -113,11 +145,5 @@ bootState.nextState = function() {
 	game.cache.removeJSON("assetSources");
 
 	// Go to next state
-	game.load.onFileComplete.add(function parseLoad(progress, fileKey, success, totalLoadedFiles, totalFiles) {
-		if(totalLoadedFiles >= totalFiles) {
-			game.load.onFileComplete.remove(parseLoad, this);
-			game.state.start("game");
-		}
-	}, this);
-	game.load.json("map", "assets/maps/debug.json");
+	game.state.start("scenarioLoader", true, false, "assets/campaigns/test/scenario01");
 };

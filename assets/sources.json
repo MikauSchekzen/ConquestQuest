@@ -1,4 +1,10 @@
 {
+	"images": [
+		{
+			"key": "tilesetMarkers",
+			"url": "assets/gfx/tilesets/tilesetMarkers.png"
+		}
+	],
 	"atlases": [
 		{
 			"key": "body_base",
@@ -45,6 +51,18 @@
 		{
 			"key": "configItems",
 			"url": "config/items.json"
+		},
+		{
+			"key": "configAbilities",
+			"url": "config/abilities.json"
+		},
+		{
+			"key": "configEffects",
+			"url": "config/effects.json"
+		},
+		{
+			"key": "configFactions",
+			"url": "config/factions.json"
 		}
 	],
 	"audio": [

@@ -41,5 +41,19 @@ var GameManager = {
 				this.bgm = null;
 			}
 		}
+	},
+	game: {
+		scenario: {
+			current: null
+		}
+	},
+	loader: {
+		maps: {
+			total: 0,
+			loaded: 0
+		},
+		defaultLocations: {
+			tilesets: "assets/gfx/tilesets/"
+		}
 	}
 };

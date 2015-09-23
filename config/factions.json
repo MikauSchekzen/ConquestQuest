@@ -1,0 +1,34 @@
+{
+	"data": [
+		{
+			"resref": "lordaeron",
+			"banner": null,
+			"text": {
+				"en": {
+					"name": "Lordaeron",
+					"adjective": "Lordaeron"
+				}
+			}
+		},
+		{
+			"resref": "hunting_lodge",
+			"banner": null,
+			"text": {
+				"en": {
+					"name": "Northcamp Hunting Lodge",
+					"adjective": "Northcampish"
+				}
+			}
+		},
+		{
+			"resref": "stormlash_clan",
+			"banner": null,
+			"text": {
+				"en": {
+					"name": "Stormlash Clan",
+					"adjective": "Stormlash"
+				}
+			}
+		}
+	]
+}

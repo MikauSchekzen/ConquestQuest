@@ -1,0 +1,15 @@
+{
+	"maps": [
+		{
+			"key": "test",
+			"filename": "debug"
+		}
+	],
+	"settings": [
+		{
+			"key": "players",
+			"type": "playerList",
+			"filename": "players.json"
+		}
+	]
+}

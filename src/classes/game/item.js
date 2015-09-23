@@ -6,6 +6,7 @@ GameData.classes.Item = function(resref) {
 
 	this.name = this.baseItem.config.text[GameData.getLangRef()].name;
 	this.slot = this.baseItem.config.slot;
+	this.wielder = null;
 
 	// Set appearance
 	this.appearance = {
@@ -20,6 +21,12 @@ GameData.classes.Item = function(resref) {
 	if(this.baseItem.config.appearance.offset) {
 		this.appearance.offset.x = this.baseItem.config.appearance.offset.x;
 		this.appearance.offset.y = this.baseItem.config.appearance.offset.y;
+	}
+
+	// Set stats
+	this.stats = {
+		attributes: merge({}, this.baseItem.config.attributes),
+		properties: merge({}, this.baseItem.config.properties)
 	}
 };
 GameData.classes.Item.prototype.constructor = GameData.classes.Item;

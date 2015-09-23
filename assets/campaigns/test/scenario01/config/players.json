@@ -1,0 +1,12 @@
+{
+	"data": [
+		{
+			"faction": "lordaeron",
+			"resref": "player"
+		},
+		{
+			"faction": "stormlash_clan",
+			"resref": "ai_derpface"
+		}
+	]
+}

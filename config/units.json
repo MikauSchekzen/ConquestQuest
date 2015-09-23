@@ -4,6 +4,9 @@
 			"resref": "footman",
 			"race": "human",
 			"gender": "male",
+			"factions": [
+				"lordaeron"
+			],
 			"text": {
 				"en": {
 					"noun": "Footman",
@@ -26,12 +29,23 @@
 				{
 					"item": "shield_buckler"
 				}
-			]
+			],
+			"attributes": {
+				"strength": 3,
+				"constitution": 2
+			},
+			"vitals": {
+				"maxhp": 55,
+				"maxmp": 0
+			}
 		},
 		{
 			"resref": "berserker",
-			"race": "orc",
 			"gender": "male",
+			"race": "orc",
+			"factions": [
+				"stormlash_clan"
+			],
 			"text": {
 				"en": {
 					"noun": "Berserker",
@@ -51,12 +65,23 @@
 				{
 					"item": "weapon_battleaxe"
 				}
-			]
+			],
+			"attributes": {
+				"strength": 4,
+				"agility": 2
+			},
+			"vitals": {
+				"maxhp": 65,
+				"maxmp": 0
+			}
 		},
 		{
 			"resref": "hunter",
 			"race": "elf",
 			"gender": "male",
+			"factions": [
+				"hunting_lodge"
+			],
 			"text": {
 				"en": {
 					"noun": "Hunter",
@@ -84,12 +109,24 @@
 					},
 					"depth": -30
 				}
-			]
+			],
+			"attributes": {
+				"dexterity": 3,
+				"agility": 2
+			},
+			"vitals": {
+				"maxhp": 50,
+				"maxmp": 12
+			}
 		},
 		{
 			"resref": "elven_mage",
 			"race": "elf",
 			"gender": "female",
+			"factions": [
+				"hunting_lodge",
+				"lordaeron"
+			],
 			"text": {
 				"en": {
 					"noun": "Mage",
@@ -114,7 +151,15 @@
 					},
 					"depth": -30
 				}
-			]
+			],
+			"attributes": {
+				"intelligence": 3,
+				"wisdom": 2
+			},
+			"vitals": {
+				"maxhp": 40,
+				"maxmp": 20
+			}
 		}
 	]
 }

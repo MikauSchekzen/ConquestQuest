@@ -1,0 +1,18 @@
+{
+	"data": [
+		{
+			"resref": "melee_attack",
+			"name": "Melee Attack",
+			"effects": [
+				{
+					"effect": "melee_attack",
+					"target": {
+						"type": "single",
+						"range": "1",
+						"count": "1"
+					}
+				}
+			]
+		}
+	]
+}

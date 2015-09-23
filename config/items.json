@@ -11,6 +11,10 @@
 			"appearance": {
 				"atlas": "armor",
 				"frame": "chest_chainmail.png"
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 6
 			}
 		},
 		{
@@ -24,6 +28,10 @@
 			"appearance": {
 				"atlas": "armor",
 				"frame": "chest_leather.png"
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 4
 			}
 		},
 		{
@@ -41,6 +49,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 6
 			}
 		},
 		{
@@ -58,6 +70,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 4
 			}
 		},
 		{
@@ -75,6 +91,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"ap": 4
 			}
 		},
 		{
@@ -92,6 +112,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"ap": 3
 			}
 		},
 		{
@@ -109,6 +133,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"ap": 5
 			}
 		},
 		{
@@ -126,6 +154,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"ap": 5
 			}
 		},
 		{
@@ -143,6 +175,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"ap": 8
 			}
 		},
 		{
@@ -160,6 +196,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 2
 			}
 		},
 		{
@@ -177,6 +217,10 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {},
+			"properties": {
+				"armor": 4
 			}
 		},
 		{
@@ -194,6 +238,12 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {
+				"intelligence": 1
+			},
+			"properties": {
+				"armor": 1
 			}
 		},
 		{
@@ -211,6 +261,13 @@
 					"x": 0,
 					"y": 0
 				}
+			},
+			"attributes": {
+				"wisdom": 1
+			},
+			"properties": {
+				"ap": 3,
+				"sp": 4
 			}
 		}
 	]

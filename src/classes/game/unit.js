@@ -1,4 +1,4 @@
-GameData.classes.Unit = function(resref) {
+GameData.classes.Unit = function(resref, player) {
 	Phaser.Group.call(this, game, 0, 0);
 	game.add.existing(this);
 
@@ -12,6 +12,98 @@ GameData.classes.Unit = function(resref) {
 	Object.defineProperty(this, "baseUnit", {get() {
 		return GameData.config.units.data[this.resref];
 	}});
+
+	// Append to player
+	player.addUnit(this);
+
+	// Define stats properties
+	Object.defineProperties(this, {
+		"ap": {
+			get() {
+				// Get base stat
+				var value = this.getAttribute("strength", true);
+				// Get temporary bonuses
+				// From items
+				var a, item;
+				for(a = 0;a < this.gear.length;a++) {
+					item = this.gear[a].item;
+					if(item && item.stats.properties.ap) {
+						value += item.stats.properties.ap;
+					}
+				}
+				// Return result
+				return Math.max(0, value);
+			}
+		},
+		"sp": {
+			get() {
+				// Get base stat
+				var value = this.getAttribute("intelligence", true);
+				// Get temporary bonuses
+				// From items
+				var a, item;
+				for(a = 0;a < this.gear.length;a++) {
+					item = this.gear[a].item;
+					if(item && item.stats.properties.sp) {
+						value += item.stats.properties.sp;
+					}
+				}
+				// Return result
+				return Math.max(0, value);
+			}
+		},
+		"armor": {
+			get() {
+				// Get base armor
+				var value = 0;
+				// Get temporary bonuses
+				// From items
+				var a, item;
+				for(a = 0;a < this.gear.length;a++) {
+					item.this.gear[a].item;
+					if(item &&  item.stats.properties.armor) {
+						value += item.stats.properties.armor;
+					}
+				}
+				// Return result
+				return Math.max(0, value);
+			}
+		},
+		"maxActionPoints": {
+			get() {
+				// Get base action points
+				var value = this.getAttribute("agility", true);
+				// Get temporary bonuses
+				// From items
+				var a, item;
+				for(a = 0;a < this.gear.length;a++) {
+					item = this.gear[a].item;
+					if(item && item.stats.properties.actionPoints) {
+						value += item.stats.properties.actionPoints;
+					}
+				}
+				// Return result
+				return value;
+			}
+		},
+		"scenario": {
+			get() {
+				return GameManager.game.scenario.current;
+			}
+		},
+		"tilePos": {
+			get() {
+				return {
+					x: Math.floor(this.x / GameData.tile.width),
+					y: Math.floor(this.y / GameData.tile.height)
+				};
+			}
+		}
+	});
+
+	// Set extra stats
+	this.actionPoints = 0;
+	this.selected = false;
 
 	// Load config data
 	this.resetToBase();
@@ -30,12 +122,27 @@ GameData.classes.Unit.prototype.resetToBase = function() {
 	var a, obj;
 	// Set race
 	this.stats = {
-		race: this.baseUnit.config.race
+		race: this.baseUnit.config.race,
+		attributes: {},
+		vitals: {}
 	};
 
 	// Set base data
 	this.name = this.baseUnit.config.text[GameData.getLangRef()].noun;
 	this.gender = this.baseUnit.config.gender;
+	// Set attributes
+	merge(this.stats.attributes, GameData.templates.unitAttributes);
+	// Adjust attributes by race
+	for(a in this.raceConfig.attributes) {
+		this.stats.attributes[a] += this.raceConfig.attributes[a];
+	}
+	// Adjust attributes by base unit
+	for(a in this.baseUnit.config.attributes) {
+		this.stats.attributes[a] += this.baseUnit.config.attributes[a];
+	}
+
+	// Set vitals
+	merge(this.stats.vitals, GameData.templates.unitVitals);
 
 	// Set gear slots
 	this.gear = [];
@@ -57,6 +164,21 @@ GameData.classes.Unit.prototype.resetToBase = function() {
 			this.gfxComponents.push(merge({}, obj));
 		}
 	}
+
+	this.adjustVitals();
+};
+
+/*
+	method: adjustVitals
+*/
+GameData.classes.Unit.prototype.adjustVitals = function() {
+	var prevVitals = merge({}, this.stats.vitals);
+	// Change the maximum values
+	this.stats.vitals.maxhp = this.baseUnit.config.vitals.maxhp + this.getAttribute("constitution", true);
+	this.stats.vitals.maxmp = this.baseUnit.config.vitals.maxmp + this.getAttribute("wisdom", true);
+	// Adjust the current values
+	this.stats.vitals.hp = Math.max(1, this.stats.vitals.hp + (this.stats.vitals.maxhp - prevVitals.maxhp));
+	this.stats.vitals.mp = Math.max(0, this.stats.vitals.mp + (this.stats.vitals.maxmp - prevVitals.maxmp));
 };
 
 /*
@@ -78,6 +200,7 @@ GameData.classes.Unit.prototype.equipItem = function(item) {
 	slot = this.getItemSlot(item.slot);
 	if(slot >= 0) {
 		this.gear[slot].item = item;
+		item.wielder = this;
 	}
 };
 
@@ -95,6 +218,34 @@ GameData.classes.Unit.prototype.getItemSlot = function(slot_type) {
 		}
 	}
 	return -1;
+};
+
+/*
+	getAttribute(name, includeTemp)
+	Returns the value of the given attribute
+	If 'includeTemp' is true, it will return the sum of
+	 the attribute
+	 Otherwise, it will return the base value
+*/
+GameData.classes.Unit.prototype.getAttribute = function(attrName, includeTemp) {
+	if(includeTemp === undefined) {
+		includeTemp = true;
+	}
+
+	// Get base
+	var value = this.stats.attributes[attrName];
+
+	// Get temporary bonuses
+	var a, item;
+	for(a = 0;a < this.gear.length;a++) {
+		item = this.gear[a].item;
+		if(item && item.stats.attributes[attrName]) {
+			value += item.stats.attributes[attrName];
+		}
+	}
+
+	// Return result
+	return value;
 };
 
 /*
@@ -185,4 +336,81 @@ GameData.classes.Unit.prototype.resetAppearance = function() {
 	for(a = 0;a < zOrderingArray.length;a++) {
 		this.bringToTop(zOrderingArray[a]);
 	}
+};
+
+/*
+	method: ownedByPlayer(player)
+	Returns true if this object is owned by the given player
+*/
+GameData.classes.Unit.prototype.ownedByPlayer = function(player) {
+	var a, unit;
+	for(a = 0;a < player.units.list.length;a++) {
+		unit = player.units.list[a];
+		if(unit === this) {
+			return true;
+		}
+	}
+	return false;
+};
+
+/*
+	method: move(x, y)
+	Moves the unit to the specified x and y position(in tiles)
+*/
+GameData.classes.Unit.prototype.move = function(x, y) {
+	var placeObj = this.map.getUnitLayer().getObjectAt(x, y);
+	if(!placeObj) {
+		this.map.getUnitLayer().moveObject(this, x, y);
+	}
+};
+
+/*
+	method: onClick
+	Fired when the client clicks on this unit
+*/
+GameData.classes.Unit.prototype.onClick = function() {
+	var activePlayer = this.scenario.getActivePlayer();
+	if(this.ownedByPlayer(activePlayer)) {
+		if(this.selected) {
+			this.deselect();
+		}
+		else {
+			this.select();
+		}
+	}
+};
+
+/*
+	method: select
+	Selects this unit
+*/
+GameData.classes.Unit.prototype.select = function() {
+	this.selected = true;
+	this.scenario.selectedUnit = this;
+
+	// Set up pathfinder
+	var paths = [], a, halfRange = Math.ceil(this.actionPoints * 0.5), pathfinder, potentialSpaces = [];
+	// Get rectangle borders
+	// H-borders
+	for(a = -halfRange;a < halfRange;a++) {
+		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y - halfRange, this, potentialSpaces));
+		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y + halfRange, this, potentialSpaces));
+		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x - halfRange, this.tilePos.y + a, this, potentialSpaces));
+		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + halfRange, this.tilePos.y + a, this, potentialSpaces));
+	}
+	// Place movement markers
+	var node, layer;
+	for(a = 0;a < potentialSpaces.length;a++) {
+		node = potentialSpaces[a];
+		new GameData.classes.Tile_Marker(node.x, node.y, "movement", this.map);
+	}
+};
+
+/*
+	method: deselect
+	Deselects this unit
+*/
+GameData.classes.Unit.prototype.deselect = function() {
+	this.selected = false;
+	this.scenario.selectedUnit = null;
 };

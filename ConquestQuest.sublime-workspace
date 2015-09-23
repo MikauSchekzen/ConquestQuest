@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"evaluate",
+				"evaluatePlayers"
+			],
+			[
 				"save",
 				"needSave"
 			],
@@ -16,74 +20,26 @@
 	"buffers":
 	[
 		{
+			"file": "assets/campaigns/test/scenario01/maps/debug.json",
+			"settings":
+			{
+				"buffer_size": 32478,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "config/races.json",
 			"settings":
 			{
-				"buffer_size": 5380,
+				"buffer_size": 5587,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/classes/game/map.js",
+			"file": "src/states/state_scenarioloader.js",
 			"settings":
 			{
-				"buffer_size": 1968,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/game/layer.js",
-			"settings":
-			{
-				"buffer_size": 1889,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/game/unit.js",
-			"settings":
-			{
-				"buffer_size": 4601,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/units.json",
-			"settings":
-			{
-				"buffer_size": 1666,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/items.json",
-			"settings":
-			{
-				"buffer_size": 3097,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/data/baseunit.js",
-			"settings":
-			{
-				"buffer_size": 200,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/states/state_game.js",
-			"settings":
-			{
-				"buffer_size": 314,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/states/state_boot.js",
-			"settings":
-			{
-				"buffer_size": 2963,
+				"buffer_size": 3958,
 				"line_ending": "Windows"
 			}
 		},
@@ -91,7 +47,143 @@
 			"file": "src/pre.js",
 			"settings":
 			{
-				"buffer_size": 547,
+				"buffer_size": 1687,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/layer.js",
+			"settings":
+			{
+				"buffer_size": 3687,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/unit.js",
+			"settings":
+			{
+				"buffer_size": 10594,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/tile_marker.js",
+			"settings":
+			{
+				"buffer_size": 1208,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/map.js",
+			"settings":
+			{
+				"buffer_size": 6773,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/pathfinding/pathfinder.js",
+			"settings":
+			{
+				"buffer_size": 5356,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/pathfinding/pathfinding_node.js",
+			"settings":
+			{
+				"buffer_size": 479,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/faction.js",
+			"settings":
+			{
+				"buffer_size": 374,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/ability.js",
+			"settings":
+			{
+				"buffer_size": 484,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/effect.js",
+			"settings":
+			{
+				"buffer_size": 249,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/units.json",
+			"settings":
+			{
+				"buffer_size": 2319,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/data/baseunit.js",
+			"settings":
+			{
+				"buffer_size": 641,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/factions.json",
+			"settings":
+			{
+				"buffer_size": 485,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/player.js",
+			"settings":
+			{
+				"buffer_size": 781,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/scenario.js",
+			"settings":
+			{
+				"buffer_size": 3684,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/gamemanager.js",
+			"settings":
+			{
+				"buffer_size": 970,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/states/state_game.js",
+			"settings":
+			{
+				"buffer_size": 215,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/effects.json",
+			"settings":
+			{
+				"buffer_size": 250,
 				"line_ending": "Windows"
 			}
 		}
@@ -166,33 +258,43 @@
 		"/D/Projects/Phaser/ConquestQuest/src/classes",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/data",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/game",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/pathfinding",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/gui",
 		"/D/Projects/Phaser/ConquestQuest/src/states"
 	],
 	"file_history":
 	[
-		"/D/Projects/Phaser/ConquestQuest/assets/maps/debug.json",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile.js",
+		"/D/Projects/Phaser/ConquestQuest/src/states/state_boot.js",
 		"/D/Projects/Phaser/ConquestQuest/sources.json",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile_marker.js",
 		"/D/Projects/Phaser/ConquestQuest/assets/sources.json",
-		"/D/Projects/Phaser/ConquestQuest/src/classes/data/baseunit.js",
-		"/D/Projects/Phaser/ConquestQuest/assets/gfx/atlases/weapons.json",
-		"/D/Projects/Phaser/ConquestQuest/editors/database/main.css",
-		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/storage.js",
-		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/sidebar.js",
-		"/D/Projects/Phaser/ConquestQuest/editors/database/index.html",
-		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/races.js",
-		"/D/Projects/Phaser/ConquestQuest/src/classes/game/item.js",
-		"/D/Projects/Phaser/ConquestQuest/src/classes/data/baseitem.js",
+		"/D/Projects/Phaser/ConquestQuest/assets/campaigns/test/scenario01/config/players.json",
+		"/D/Projects/Phaser/ConquestQuest/assets/campaigns/test/scenario01/files.json",
+		"/D/Projects/Phaser/ConquestQuest/config/factions.json",
 		"/D/Projects/Phaser/ConquestQuest/src/pre.js",
-		"/D/Projects/Phaser/ConquestQuest/src/game.js",
-		"/D/Projects/Phaser/ConquestQuest/src/states/state_game.js",
+		"/D/Projects/Phaser/ConquestQuest/config/abilities.json",
+		"/D/Projects/Phaser/ConquestQuest/config/skills.json",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile_floor.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/data/tileset.js",
 		"/D/Projects/Phaser/ConquestQuest/config/items.json",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/item.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile_wall.js",
+		"/D/Projects/Phaser/ConquestQuest/assets/maps/debug.json",
+		"/D/Projects/Phaser/ConquestQuest/src/gamemanager.js",
+		"/D/Projects/Phaser/ConquestQuest/src/game.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/data/baseunit.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/data/baseitem.js",
+		"/D/Projects/Phaser/ConquestQuest/src/states/state_game.js",
 		"/D/Projects/Phaser/ConquestQuest/config/races.json",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/game/unit.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/sidebar.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/storage.js",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/index.html",
+		"/D/Projects/Phaser/ConquestQuest/editors/database/main.css",
 		"/D/Projects/Phaser/ConquestQuest/editors/database/main.js",
 		"/D/Projects/Phaser/ConquestQuest/editors/database/package.json",
 		"/D/Projects/Phaser/ConquestQuest/config/units.json",
-		"/D/Projects/Phaser/ConquestQuest/src/states/state_boot.js",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/data/race.js",
 		"/D/Projects/Phaser/ConquestQuest/src/helper_functions.js",
 		"/D/Projects/Phaser/ConquestQuest/Gruntfile.js",
@@ -202,7 +304,6 @@
 		"/D/Projects/Phaser/ConquestQuest/config/appearances.json",
 		"/D/Projects/Phaser/ConquestQuest/assets/gfx/atlases/body_base.json",
 		"/D/Projects/Phaser/ConquestQuest/main.js",
-		"/D/Projects/Phaser/ConquestQuest/src/gamemanager.js",
 		"/D/Projects/Phaser/ConquestQuest/package.json",
 		"/D/Projects/Phaser/ConquestQuest/ConquestQuest.sublime-project",
 		"/D/Projects/Phaser/Lem/src/classes/cursor.js",
@@ -290,19 +391,11 @@
 		"/D/Games/SuperLemmini/docs/level format.txt",
 		"/D/Projects/Phaser/Lem/lib/pre.js",
 		"/D/Projects/Phaser/Lem/lib/classes/class_wrapper.js",
-		"/D/Projects/JavaScript/JSPoP/lib/interface.js",
-		"/D/Projects/JavaScript/JSPoP/lib/boot.js",
-		"/D/Projects/JavaScript/JSPoP/lib/preloader.js",
-		"/D/Projects/JavaScript/JSPoP/lib/game.js",
-		"/D/Projects/JavaScript/JSPoP/lib/levelparser.js",
-		"/D/Projects/JavaScript/JSPoP/lib/level.js",
-		"/D/Projects/JavaScript/JSPoP/lib/actor.js",
-		"/D/Projects/JavaScript/JSPoP/main.js",
-		"/D/Projects/JavaScript/JSPoP/package.json"
+		"/D/Projects/JavaScript/JSPoP/lib/interface.js"
 	],
 	"find":
 	{
-		"height": 43.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -317,61 +410,78 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"data",
-			"baseMap",
-			"x",
-			"true",
+			"width",
+			"imgWidth",
+			"Tile",
+			"atlasJSONArray",
+			"atlases",
+			"floors",
+			"floor",
+			"this",
+			"limit",
+			"orthogonal",
+			"getNode",
+			"nodes",
+			"AStar",
+			"floor",
+			"features",
+			"feature",
 			"unit",
-			"weapon_spear",
-			"}\n",
-			"armor_leather",
-			"robe_blue",
-			"armor",
-			"Robe",
-			"chest",
-			"shield_buckler",
-			"armor",
-			"Buckler",
-			"limb",
-			"male",
-			"Hunters",
-			"Hunter",
-			"helm_horse",
-			"head",
-			"spear",
-			"weapons",
-			"Spear",
-			"limb",
-			"weapons",
-			"race",
-			"baseUnit",
-			"footman",
-			"Mace",
-			"limb",
-			"weapon_battleaxe",
-			"Berserkers",
-			"Berserker",
-			"male",
-			"orc",
-			"berserker",
+			"units",
+			"unit",
+			"scenario",
+			"pointer",
+			"secondIndex",
+			"Order",
+			"maps",
+			"HONK",
+			"Set",
+			"stormlash_clan",
+			"Lordaeron",
 			"human",
-			"Human",
-			"Humans",
-			"Human",
-			"Humans",
-			"Human",
-			"noun",
-			"adjective",
-			"noun",
-			"input",
-			"Plural",
-			"noun",
-			"label",
-			"storage",
-			"console.log",
-			"onchange",
-			"relative",
-			"sidebar",
+			"lordaeron",
+			"Lordaeron",
+			"human",
+			"lordaeron",
+			"effects",
+			"player",
+			"item",
+			"strength",
+			"tilesets",
+			"baseitem",
+			"skills",
+			"items",
+			"woof",
+			"sp",
+			"wisdom",
+			"armor",
+			"constitution",
+			"strength",
+			"constitution",
+			"strength",
+			"dexterity",
+			"constitution",
+			"\"stats\"",
+			"stats",
+			"agi",
+			"true",
+			".add",
+			"floors",
+			"game",
+			"url",
+			"layers",
+			"curFile",
+			"source",
+			"GameManager",
+			"tileset",
+			"state_boot",
+			"baseunit",
+			"data",
+			"baseunit",
+			"Sprite",
+			"walls",
+			"features",
+			"terrain",
 			"html",
 			"weapon_shortsword",
 			"armor_chainmail",
@@ -427,24 +537,7 @@
 			"configAppearances",
 			"nextState",
 			"test",
-			");\n",
-			"test",
-			"preload",
-			"Sprite",
-			"1400",
-			"Lem",
-			"builder",
-			"false",
-			"cutout",
-			"true",
-			"false",
-			"margin",
-			"Layer.placeTile",
-			"duration",
-			"cropping",
-			"value",
-			"basegid",
-			"new Tile"
+			");\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -452,6 +545,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Pathfinder",
+			"\"attributes\"",
 			"\"tileType\":\"2\"",
 			"this.lemmingsGroup",
 			"game",
@@ -463,7 +558,7 @@
 			"*$",
 			"*"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -472,264 +567,203 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "config/races.json",
+					"file": "assets/campaigns/test/scenario01/maps/debug.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5380,
+						"buffer_size": 32478,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5190,
-								5190
+								24635,
+								24635
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config/races.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5587,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
+								1822,
+								1822
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5670.0,
+						"translation.y": 2778.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/states/state_scenarioloader.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3958,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3110,
+								3110
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 494.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/pre.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1386,
+								1386
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 750.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/classes/game/layer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/classes/game/map.js",
+					"buffer": 5,
+					"file": "src/classes/game/unit.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1968,
+						"buffer_size": 10594,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								457,
-								457
+								10422,
+								10422
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5452.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "src/classes/game/layer.js",
+					"buffer": 6,
+					"file": "src/classes/game/tile_marker.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1889,
+						"buffer_size": 1208,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								422,
-								422
+								461,
+								461
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"open_with_edit": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -740,434 +774,113 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/classes/game/unit.js",
+					"buffer": 7,
+					"file": "src/classes/game/map.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4601,
+						"buffer_size": 6773,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1448,
-								1449
+								5387,
+								5387
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
+							"spell_check": false,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "config/units.json",
+					"buffer": 8,
+					"file": "src/classes/game/pathfinding/pathfinder.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1666,
+						"buffer_size": 5356,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1335,
-								1335
+								2061,
+								2061
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1432.0,
+						"translation.y": 750.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "config/items.json",
+					"buffer": 9,
+					"file": "src/classes/game/pathfinding/pathfinding_node.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3097,
+						"buffer_size": 479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2721,
-								2721
+								378,
+								378
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3132.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/classes/data/baseunit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								200,
-								200
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
+							"open_with_edit": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/states/state_game.js",
+					"buffer": 10,
+					"file": "src/classes/data/faction.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 314,
+						"buffer_size": 374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								206,
-								206
+								374,
+								374
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
+							"open_with_edit": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -1178,173 +891,285 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "src/states/state_boot.js",
+					"buffer": 11,
+					"file": "src/classes/data/ability.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2963,
+						"buffer_size": 484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2899,
-								2899
+								399,
+								399
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1620.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "src/pre.js",
+					"buffer": 12,
+					"file": "src/classes/data/effect.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 547,
+						"buffer_size": 249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								453,
-								453
+								249,
+								249
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "config/units.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2319,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
+								1762,
+								1762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1380.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "src/classes/data/baseunit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 641,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								470,
+								470
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "config/factions.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "src/classes/game/player.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								778,
+								778
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "src/classes/game/scenario.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								219,
+								219
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "src/gamemanager.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								705,
+								705
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "src/states/state_game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "config/effects.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 250,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1358,7 +1183,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 40.0
+		"height": 34.0
 	},
 	"input":
 	{
