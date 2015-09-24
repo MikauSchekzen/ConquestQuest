@@ -88,9 +88,16 @@ var GameData = {
 	},
 	pathfinding: {
 		baseCosts: {
-			orthogonal: 10,
-			diagonal: 14
+			orthogonal: 1,
+			diagonal: 1
 		}
+	},
+	opinion: {
+		UNKNOWN: 0,
+		HOSTILE: 1,
+		NEUTRAL: 2,
+		ALLIED: 3,
+		SAME_OWNER: 4
 	},
 	scenario: {
 		prefixes: {

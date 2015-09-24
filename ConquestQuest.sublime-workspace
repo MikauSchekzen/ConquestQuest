@@ -23,7 +23,7 @@
 			"file": "assets/campaigns/test/scenario01/maps/debug.json",
 			"settings":
 			{
-				"buffer_size": 32478,
+				"buffer_size": 32892,
 				"line_ending": "Windows"
 			}
 		},
@@ -36,34 +36,10 @@
 			}
 		},
 		{
-			"file": "src/states/state_scenarioloader.js",
-			"settings":
-			{
-				"buffer_size": 3958,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/pre.js",
-			"settings":
-			{
-				"buffer_size": 1687,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/classes/game/layer.js",
 			"settings":
 			{
 				"buffer_size": 3687,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/game/unit.js",
-			"settings":
-			{
-				"buffer_size": 10594,
 				"line_ending": "Windows"
 			}
 		},
@@ -79,7 +55,47 @@
 			"file": "src/classes/game/map.js",
 			"settings":
 			{
-				"buffer_size": 6773,
+				"buffer_size": 8935,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/campaigns/test/scenario01/config/players.json",
+			"settings":
+			{
+				"buffer_size": 470,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/scenario.js",
+			"settings":
+			{
+				"buffer_size": 4747,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/player.js",
+			"settings":
+			{
+				"buffer_size": 1391,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/pathfinding/pathfinding_path.js",
+			"settings":
+			{
+				"buffer_size": 6378,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/pre.js",
+			"settings":
+			{
+				"buffer_size": 1772,
 				"line_ending": "Windows"
 			}
 		},
@@ -87,7 +103,15 @@
 			"file": "src/classes/game/pathfinding/pathfinder.js",
 			"settings":
 			{
-				"buffer_size": 5356,
+				"buffer_size": 2162,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/classes/game/unit.js",
+			"settings":
+			{
+				"buffer_size": 13549,
 				"line_ending": "Windows"
 			}
 		},
@@ -95,7 +119,7 @@
 			"file": "src/classes/game/pathfinding/pathfinding_node.js",
 			"settings":
 			{
-				"buffer_size": 479,
+				"buffer_size": 1450,
 				"line_ending": "Windows"
 			}
 		},
@@ -144,22 +168,6 @@
 			"settings":
 			{
 				"buffer_size": 485,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/game/player.js",
-			"settings":
-			{
-				"buffer_size": 781,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/classes/game/scenario.js",
-			"settings":
-			{
-				"buffer_size": 3684,
 				"line_ending": "Windows"
 			}
 		},
@@ -264,15 +272,18 @@
 	],
 	"file_history":
 	[
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/unit.js",
+		"/D/Projects/Phaser/ConquestQuest/src/classes/game/player.js",
+		"/D/Projects/Phaser/ConquestQuest/src/states/state_scenarioloader.js",
+		"/D/Projects/Phaser/ConquestQuest/src/pre.js",
+		"/D/Projects/Phaser/ConquestQuest/sources.json",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile.js",
 		"/D/Projects/Phaser/ConquestQuest/src/states/state_boot.js",
-		"/D/Projects/Phaser/ConquestQuest/sources.json",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile_marker.js",
 		"/D/Projects/Phaser/ConquestQuest/assets/sources.json",
 		"/D/Projects/Phaser/ConquestQuest/assets/campaigns/test/scenario01/config/players.json",
 		"/D/Projects/Phaser/ConquestQuest/assets/campaigns/test/scenario01/files.json",
 		"/D/Projects/Phaser/ConquestQuest/config/factions.json",
-		"/D/Projects/Phaser/ConquestQuest/src/pre.js",
 		"/D/Projects/Phaser/ConquestQuest/config/abilities.json",
 		"/D/Projects/Phaser/ConquestQuest/config/skills.json",
 		"/D/Projects/Phaser/ConquestQuest/src/classes/game/tile_floor.js",
@@ -287,7 +298,6 @@
 		"/D/Projects/Phaser/ConquestQuest/src/classes/data/baseitem.js",
 		"/D/Projects/Phaser/ConquestQuest/src/states/state_game.js",
 		"/D/Projects/Phaser/ConquestQuest/config/races.json",
-		"/D/Projects/Phaser/ConquestQuest/src/classes/game/unit.js",
 		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/sidebar.js",
 		"/D/Projects/Phaser/ConquestQuest/editors/database/modules/storage.js",
 		"/D/Projects/Phaser/ConquestQuest/editors/database/index.html",
@@ -389,9 +399,7 @@
 		"/D/Games/Dungeon Crawl/dat/database/monspell.txt",
 		"/D/Games/Dungeon Crawl/docs/tiles_help.txt",
 		"/D/Games/SuperLemmini/docs/level format.txt",
-		"/D/Projects/Phaser/Lem/lib/pre.js",
-		"/D/Projects/Phaser/Lem/lib/classes/class_wrapper.js",
-		"/D/Projects/JavaScript/JSPoP/lib/interface.js"
+		"/D/Projects/Phaser/Lem/lib/pre.js"
 	],
 	"find":
 	{
@@ -410,6 +418,78 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"leaningOpinion",
+			"this",
+			"noHostile",
+			"noUnkown",
+			"noHostile",
+			"noAllied",
+			"ALLIED",
+			"allied",
+			"noAllied",
+			"ALLIED",
+			"allied",
+			"noHostile",
+			"HOSTILE",
+			"FRIENDLY",
+			"lordaeron_agents",
+			"hostile",
+			"ai_derpface",
+			"hostile",
+			"ai_derpface",
+			"player",
+			"this",
+			"SAME_OWNER",
+			"HOSTILE",
+			"FRIENDLY",
+			"HOSTILE",
+			"noOwned",
+			"noAllied",
+			"options",
+			"getMoveCost",
+			"HONK",
+			"map",
+			"getMoveCost",
+			"cost",
+			"-1",
+			"maxRange",
+			"addNode",
+			"parent",
+			"obj",
+			".manhattanCost",
+			"parent",
+			"finalCost",
+			"pathCost",
+			"open",
+			"console",
+			"manhattanCost",
+			"finalCost",
+			"manhattanCost",
+			"baseCost",
+			"target",
+			"width",
+			"height",
+			"width",
+			"height",
+			"addNode",
+			"node",
+			"max",
+			"getNodeIndex",
+			"this.nodes",
+			"false",
+			"open",
+			"node",
+			"nodes",
+			"this.map",
+			"target",
+			"toObj",
+			"null",
+			"potentialPlaces",
+			"finished",
+			"with",
+			"node",
+			"getnode",
+			"getNode",
 			"width",
 			"imgWidth",
 			"Tile",
@@ -465,79 +545,7 @@
 			"stats",
 			"agi",
 			"true",
-			".add",
-			"floors",
-			"game",
-			"url",
-			"layers",
-			"curFile",
-			"source",
-			"GameManager",
-			"tileset",
-			"state_boot",
-			"baseunit",
-			"data",
-			"baseunit",
-			"Sprite",
-			"walls",
-			"features",
-			"terrain",
-			"html",
-			"weapon_shortsword",
-			"armor_chainmail",
-			"Footmen",
-			"Footman",
-			"footman",
-			"hatchet",
-			"Hatchet",
-			"weapon_hatchet",
-			"hatchet",
-			"Hatchet",
-			"shortsword",
-			"weapon_shortsword",
-			"true",
-			"false",
-			"legs_leather",
-			"legs",
-			"slot",
-			"raceConfig",
-			"type",
-			"finger",
-			"hands",
-			"head",
-			"legs_leather",
-			"armor",
-			"legs",
-			"armor",
-			"chest",
-			"body",
-			"type",
-			"16",
-			"item",
-			"Sprite",
-			"units",
-			"configUnits",
-			"appearance",
-			"body_base",
-			"sprites",
-			"16",
-			"32",
-			"96",
-			"32",
-			"bgmTheme_BlackKnight",
-			"tempAppearance",
-			"components",
-			"type",
-			"appearance",
-			"resref",
-			"null",
-			"resref",
-			"Load",
-			"appearances",
-			"configAppearances",
-			"nextState",
-			"test",
-			");\n"
+			".add"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -567,7 +575,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -576,7 +584,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32478,
+						"buffer_size": 32892,
 						"regions":
 						{
 						},
@@ -597,7 +605,7 @@
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -626,69 +634,11 @@
 						"translation.y": 2778.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "src/states/state_scenarioloader.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3958,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3110,
-								3110
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 494.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/pre.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1687,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1386,
-								1386
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 750.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "src/classes/game/layer.js",
 					"semi_transient": false,
 					"settings":
@@ -713,40 +663,11 @@
 						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/classes/game/unit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10594,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10422,
-								10422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5452.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 3,
 					"file": "src/classes/game/tile_marker.js",
 					"semi_transient": false,
 					"settings":
@@ -770,24 +691,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 4,
 					"file": "src/classes/game/map.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6773,
+						"buffer_size": 8935,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5387,
-								5387
+								8274,
+								8274
 							]
 						],
 						"settings":
@@ -797,27 +718,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2700.0,
+						"translation.y": 4431.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "src/classes/game/pathfinding/pathfinder.js",
+					"buffer": 5,
+					"file": "assets/campaigns/test/scenario01/config/players.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5356,
+						"buffer_size": 470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2061,
-								2061
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/classes/game/scenario.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4747,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3090,
+								3090
 							]
 						],
 						"settings":
@@ -826,27 +776,56 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 750.0,
+						"translation.y": 1534.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "src/classes/game/pathfinding/pathfinding_node.js",
+					"buffer": 7,
+					"file": "src/classes/game/player.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 479,
+						"buffer_size": 1391,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								378,
-								378
+								1151,
+								1151
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/classes/game/pathfinding/pathfinding_path.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1194,
+								1194
 							]
 						],
 						"settings":
@@ -858,11 +837,127 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/pre.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1772,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1396,
+								1396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 10,
+					"file": "src/classes/game/pathfinding/pathfinder.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								780,
+								780
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/classes/game/unit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13546,
+								13546
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/classes/game/pathfinding/pathfinding_node.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								75,
+								75
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
 					"file": "src/classes/data/faction.js",
 					"semi_transient": false,
 					"settings":
@@ -887,11 +982,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 14,
 					"file": "src/classes/data/ability.js",
 					"semi_transient": false,
 					"settings":
@@ -916,11 +1011,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 15,
 					"file": "src/classes/data/effect.js",
 					"semi_transient": false,
 					"settings":
@@ -945,11 +1040,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 16,
 					"file": "config/units.json",
 					"semi_transient": false,
 					"settings":
@@ -974,11 +1069,11 @@
 						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 17,
 					"file": "src/classes/data/baseunit.js",
 					"semi_transient": false,
 					"settings":
@@ -1002,11 +1097,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 18,
 					"file": "config/factions.json",
 					"semi_transient": false,
 					"settings":
@@ -1031,69 +1126,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
-					"file": "src/classes/game/player.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								778,
-								778
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "src/classes/game/scenario.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3684,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								219,
-								219
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "src/gamemanager.js",
 					"semi_transient": false,
 					"settings":
@@ -1114,15 +1151,15 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 60.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "src/states/state_game.js",
 					"semi_transient": false,
 					"settings":
@@ -1146,11 +1183,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "config/effects.json",
 					"semi_transient": false,
 					"settings":
@@ -1175,7 +1212,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 16,
 					"type": "text"
 				}
 			]

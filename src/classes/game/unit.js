@@ -354,6 +354,21 @@ GameData.classes.Unit.prototype.ownedByPlayer = function(player) {
 };
 
 /*
+	method: getOwners
+	Returns an array containing this unit's owners
+*/
+GameData.classes.Unit.prototype.getOwners = function() {
+	var a, plr, result = [];
+	for(a = 0;a < this.scenario.players.list.length;a++) {
+		plr = this.scenario.players.list[a];
+		if(this.ownedByPlayer(plr)) {
+			result.push(plr);
+		}
+	}
+	return result;
+};
+
+/*
 	method: move(x, y)
 	Moves the unit to the specified x and y position(in tiles)
 */
@@ -389,20 +404,27 @@ GameData.classes.Unit.prototype.select = function() {
 	this.scenario.selectedUnit = this;
 
 	// Set up pathfinder
-	var paths = [], a, halfRange = Math.ceil(this.actionPoints * 0.5), pathfinder, potentialSpaces = [];
-	// Get rectangle borders
-	// H-borders
-	for(a = -halfRange;a < halfRange;a++) {
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y - halfRange, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y + halfRange, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x - halfRange, this.tilePos.y + a, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + halfRange, this.tilePos.y + a, this, potentialSpaces));
-	}
+	var pathfinder, a, halfRange = this.actionPoints;
+	pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this, {
+		maxRange: halfRange
+	});
+	// Get potential squares
 	// Place movement markers
-	var node, layer;
-	for(a = 0;a < potentialSpaces.length;a++) {
-		node = potentialSpaces[a];
+	var list = pathfinder.getConsolidatedNodes(), node;
+	for(a = 0;a < list.length;a++) {
+		node = list[a];
 		new GameData.classes.Tile_Marker(node.x, node.y, "movement", this.map);
+	}
+
+	var unit = this.getNearestEnemy();
+	if(unit) {
+		pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this);
+		pathfinder.addPath(unit.tilePos.x, unit.tilePos.y);
+		list = pathfinder.getConsolidatedNodes();
+		for(a = 0;a < list.length;a++) {
+			node = list[a];
+			new GameData.classes.Tile_Marker(node.x, node.y, "movement", this.map);
+		}
 	}
 };
 
@@ -413,4 +435,112 @@ GameData.classes.Unit.prototype.select = function() {
 GameData.classes.Unit.prototype.deselect = function() {
 	this.selected = false;
 	this.scenario.selectedUnit = null;
+};
+
+/*
+	method: canAccessTile(tileX, tileY)
+	Returns true if the character can walk over the specified tile position
+*/
+GameData.classes.Unit.prototype.canAccessTile = function(map, tileX, tileY) {
+	var cost = this.getMoveCost(map, tileX, tileY);
+	if(cost === -1) {
+		return false;
+	}
+	return true;
+};
+
+/*
+	method: getMoveCost(map, tileX, tileY)
+	Returns the move point cost for this unit to walk over the specified tile
+*/
+GameData.classes.Unit.prototype.getMoveCost = function(map, tileX, tileY) {
+	var baseCost = map.getMoveCost(tileX, tileY);
+	return baseCost;
+};
+
+/*
+	method: getOpinion(targetUnit)
+	Returns the opinion of the target unit
+	Will be one of these constants:
+	GameData.opinion.HOSTILE
+	GameData.opinion.NEUTRAL
+	GameData.opinion.ALLIED
+	GameData.opinion.SAME_OWNER
+	GameData.opinion.UNKNOWN
+*/
+GameData.classes.Unit.prototype.getOpinion = function(targetUnit) {
+	var myOwners = this.getOwners();
+	var owners = targetUnit.getOwners();
+	var a, b, myPlr, plr, leaningOpinion = GameData.opinion.UNKNOWN, checkOpinion;
+
+	// Get opinion from target's owner(s)
+	for(a = 0;a < owners.length;a++) {
+		plr = owners[a];
+		for(b = 0;b < myOwners.length;b++) {
+			myPlr = myOwners[b];
+			checkOpinion = myPlr.getOpinion(plr);
+			switch(checkOpinion) {
+				case GameData.opinion.SAME_OWNER:
+					return GameData.opinion.SAME_OWNER;
+					break;
+				case GameData.opinion.NEUTRAL:
+					if(leaningOpinion == GameData.opinion.UNKNOWN) {
+						leaningOpinion = GameData.opinion.NEUTRAL;
+					}
+					break;
+				case GameData.opinion.HOSTILE:
+					if(leaningOpinion == GameData.opinion.UNKNOWN || leaningOpinion == GameData.opinion.NEUTRAL) {
+						leaningOpinion = GameData.opinion.HOSTILE;
+					}
+					break;
+				case GameData.opinion.ALLIED:
+					if(leaningOpinion == GameData.opinion.UNKNOWN || leaningOpinion == GameData.opinion.NEUTRAL || leaningOpinion == GameData.opinion.HOSTILE) {
+						leaningOpinion = GameData.opinion.ALLIED;
+					}
+					break;
+			}
+		}
+	}
+
+	// Return result
+	return leaningOpinion;
+};
+
+/*
+	method: getNearestEnemy
+	Returns the nearest hostile unit to this player
+*/
+GameData.classes.Unit.prototype.getNearestEnemy = function() {
+	var list = this.map.getUnitList(this, {
+		noUnknown: true,
+		noOwned: true,
+		noAllied: true,
+		noNeutral: true
+	});
+	
+	// Get paths to unit
+	var pathList = [];
+	var a, pathfinder, path, unit;
+	for(a = 0;a < list.length;a++) {
+		unit = list[a];
+		pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this);
+		pathfinder.addPath(unit.tilePos.x, unit.tilePos.y);
+		path = pathfinder.paths[0];
+		pathList.push({
+			unit: unit,
+			distance: path.finalNode.steps
+		});
+	}
+	// Sort list
+	pathList.sort(function(a, b) {
+		if(a.distance > b.distance) {
+			return 1;
+		}
+		if(a.distance < b.distance) {
+			return -1;
+		}
+		return 0;
+	});
+
+	return pathList[0].unit;
 };

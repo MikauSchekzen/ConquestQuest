@@ -7,6 +7,24 @@
 		{
 			"faction": "stormlash_clan",
 			"resref": "ai_derpface"
+		},
+		{
+			"faction": "lordaeron",
+			"resref": "lordaeron_agents"
 		}
-	]
+	],
+	"relations": {
+		"player": {
+			"ai_derpface": "hostile",
+			"lordaeron_agents": "allied"
+		},
+		"ai_derpface": {
+			"player": "hostile",
+			"lordaeron_agents": "hostile"
+		},
+		"lordaeron_agents": {
+			"player": "allied",
+			"ai_derpface": "hostile"
+		}
+	}
 }

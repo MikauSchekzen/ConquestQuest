@@ -112,6 +112,21 @@
                  "width":32,
                  "x":32,
                  "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":6,
+                 "name":"footman",
+                 "properties":
+                    {
+                     "owner":"player"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":224,
+                 "y":320
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -120,7 +135,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "properties":
     {

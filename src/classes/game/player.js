@@ -5,7 +5,16 @@ GameData.classes.Player = function(faction) {
 	this.baseFaction = faction;
 	this.index = 0;
 	this.visible = true;
-	this.acting = true;
+	this.acting = false;
+
+	// Define properties
+	Object.defineProperties(this, {
+		"scenario": {
+			get() {
+				return GameManager.game.scenario.current;
+			}
+		}
+	})
 };
 GameData.classes.Player.prototype.constructor = GameData.classes.Player;
 
@@ -29,4 +38,18 @@ GameData.classes.Player.prototype.startTurn = function() {
 		unit = this.units.list[a];
 		unit.actionPoints = unit.maxActionPoints;
 	}
+};
+
+/*
+	method: getOpinion(targetPlayer)
+	Returns this player's opinion of targetPlayer
+*/
+GameData.classes.Player.prototype.getOpinion = function(targetPlayer) {
+	if(targetPlayer === this) {
+		return GameData.opinion.SAME_OWNER;
+	}
+	if(this.scenario.players.relations[this.resref] && this.scenario.players.relations[this.resref][targetPlayer.resref]) {
+		return this.scenario.players.relations[this.resref][targetPlayer.resref];
+	}
+	return GameData.opinion.UNKNOWN;
 };

@@ -3,7 +3,8 @@ GameData.classes.Scenario = function() {
 	this.maps = [];
 	this.players = {
 		list: [],
-		resrefs: {}
+		resrefs: {},
+		relations: {}
 	};
 	// Set up turn order
 	this.turn = 0;
@@ -118,7 +119,33 @@ GameData.classes.Scenario.prototype.setupPlayers = function(plrObj) {
 	// Add players
 	for(a = 0;a < plrObj.data.length;a++) {
 		obj = plrObj.data[a];
+
+		// Add player
 		this.addPlayer(new GameData.classes.Player(obj.faction), obj.resref);
+	}
+
+	// Set player relations
+	var b, plr1, plr2, relation;
+	for(a in plrObj.relations) {
+		plr1 = this.players.resrefs[a];
+		for(b in plrObj.relations[a]) {
+			plr2 = this.players.resrefs[b];
+			// Determine relation
+			relation = GameData.opinion.UNKNOWN;
+			switch(plrObj.relations[a][b]) {
+				case "hostile":
+					relation = GameData.opinion.HOSTILE;
+					break;
+				case "neutral":
+					relation = GameData.opinion.NEUTRAL;
+					break;
+				case "allied":
+					relation = GameData.opinion.ALLIED;
+					break;
+			}
+			// Set relation
+			this.setPlayerRelation(plr1, plr2, relation);
+		}
 	}
 };
 
@@ -131,8 +158,21 @@ GameData.classes.Scenario.prototype.evaluatePlayers = function() {
 	var a, plr;
 	for(a = 0;a < this.players.list.length;a++) {
 		plr = this.players.list[a];
+
+		// Set player index
 		plr.index = a;
 	}
+};
+
+/*
+	method: setPlayerRelation(firstPlayer, secondPlayer, relation)
+	Sets the relation for firstPlayer towards secondPlayer
+*/
+GameData.classes.Scenario.prototype.setPlayerRelation = function(firstPlayer, secondPlayer, relation) {
+	if(!this.players.relations[firstPlayer.resref]) {
+		this.players.relations[firstPlayer.resref] = {};
+	}
+	this.players.relations[firstPlayer.resref][secondPlayer.resref] = relation;
 };
 
 /*

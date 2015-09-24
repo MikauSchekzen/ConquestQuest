@@ -10,6 +10,7 @@
 	"src/classes/data/tileset.js",
 	"src/classes/game/scenario.js",
 	"src/classes/game/pathfinding/pathfinding_node.js",
+	"src/classes/game/pathfinding/pathfinding_path.js",
 	"src/classes/game/pathfinding/pathfinder.js",
 	"src/classes/game/player.js",
 	"src/classes/game/item.js",

@@ -27,6 +27,11 @@ GameData.classes.Map = function(baseMap, name) {
 		tilesetGIDRefs: {}
 	};
 
+	// Set up game object lists
+	this.gameObjects = {
+		units: []
+	};
+
 	// Define properties
 	Object.defineProperties(this, {
 		"scenario": {
@@ -187,6 +192,7 @@ GameData.classes.Map.prototype.spawnUnit = function(x, y, type, owner) {
 		unit.destroy();
 		return null;
 	}
+	this.gameObjects.units.push(unit);
 	return unit;
 };
 
@@ -272,4 +278,78 @@ GameData.classes.Map.prototype.getMoveCost = function(x, y) {
 	}
 
 	return value;
+};
+
+/*
+	method: getDistanceBetweenTiles(x1, y1, x2, y2)
+	Returns the manhattan distance between two tiles
+*/
+GameData.classes.Map.prototype.getDistanceBetweenTiles = function(x1, y1, x2, y2) {
+	return Math.abs(x2 - x1) + Math.abs(y2 - y1);
+};
+
+/*
+	method: getUnitList(originUnit, filters)
+	Returns a filtered list of all the units in the scenario.
+	The filters object may include the following:
+	noAllied: true or false (defaults false); Filters out allied units
+	noOwned: true or false (defaults false); Filters out owned units
+	noHostile: true or false (defaults to false); Filters out hostile units
+	noNeutral: true or false (defaults to false); Filters out neutral units
+	noUnknown: true or false (defaults to false); Filters out units with an unknown opinion
+*/
+GameData.classes.Map.prototype.getUnitList = function(originUnit, filters) {
+	var result = [];
+	// Preset data
+	if(filters === undefined) {
+		filters = {};
+	}
+	if(!filters.noAllied) {filters.noAllied = false;}
+	if(!filters.noOwned) {filters.noOwned = false;}
+	if(!filters.noHostile) {filters.noHostile = false;}
+	if(!filters.noNeutral) {filters.noNeutral = false;}
+	if(!filters.noUnkown) {filters.noUnkown = false;}
+
+	// Search
+	var a, unit, opinion, doAdd;
+	for(a = 0;a < this.gameObjects.units.length;a++) {
+		unit = this.gameObjects.units[a];
+		if(unit !== originUnit) {
+			doAdd = true;
+			opinion = originUnit.getOpinion(unit);
+
+			// Check hostile
+			if(opinion == GameData.opinion.HOSTILE && filters.noHostile) {
+				doAdd = false;
+			}
+
+			// Check allied
+			if(opinion == GameData.opinion.ALLIED && filters.noAllied) {
+				doAdd = false;
+			}
+
+			// Check neutral
+			if(opinion == GameData.opinion.NEUTRAL && filters.noNeutral) {
+				doAdd = false;
+			}
+
+			// Check unknown
+			if(opinion == GameData.opinion.UNKNOWN && filters.noUnknown) {
+				doAdd = false;
+			}
+
+			// Check owned
+			if(opinion == GameData.opinion.SAME_OWNER && filters.noOwned) {
+				doAdd = false;
+			}
+
+			// Append result
+			if(doAdd) {
+				result.push(unit);
+			}
+		}
+	}
+
+	// Return results
+	return result;
 };

@@ -121,9 +121,16 @@ var GameData = {
 	},
 	pathfinding: {
 		baseCosts: {
-			orthogonal: 10,
-			diagonal: 14
+			orthogonal: 1,
+			diagonal: 1
 		}
+	},
+	opinion: {
+		UNKNOWN: 0,
+		HOSTILE: 1,
+		NEUTRAL: 2,
+		ALLIED: 3,
+		SAME_OWNER: 4
 	},
 	scenario: {
 		prefixes: {
@@ -288,7 +295,8 @@ GameData.classes.Scenario = function() {
 	this.maps = [];
 	this.players = {
 		list: [],
-		resrefs: {}
+		resrefs: {},
+		relations: {}
 	};
 	// Set up turn order
 	this.turn = 0;
@@ -403,7 +411,33 @@ GameData.classes.Scenario.prototype.setupPlayers = function(plrObj) {
 	// Add players
 	for(a = 0;a < plrObj.data.length;a++) {
 		obj = plrObj.data[a];
+
+		// Add player
 		this.addPlayer(new GameData.classes.Player(obj.faction), obj.resref);
+	}
+
+	// Set player relations
+	var b, plr1, plr2, relation;
+	for(a in plrObj.relations) {
+		plr1 = this.players.resrefs[a];
+		for(b in plrObj.relations[a]) {
+			plr2 = this.players.resrefs[b];
+			// Determine relation
+			relation = GameData.opinion.UNKNOWN;
+			switch(plrObj.relations[a][b]) {
+				case "hostile":
+					relation = GameData.opinion.HOSTILE;
+					break;
+				case "neutral":
+					relation = GameData.opinion.NEUTRAL;
+					break;
+				case "allied":
+					relation = GameData.opinion.ALLIED;
+					break;
+			}
+			// Set relation
+			this.setPlayerRelation(plr1, plr2, relation);
+		}
 	}
 };
 
@@ -416,8 +450,21 @@ GameData.classes.Scenario.prototype.evaluatePlayers = function() {
 	var a, plr;
 	for(a = 0;a < this.players.list.length;a++) {
 		plr = this.players.list[a];
+
+		// Set player index
 		plr.index = a;
 	}
+};
+
+/*
+	method: setPlayerRelation(firstPlayer, secondPlayer, relation)
+	Sets the relation for firstPlayer towards secondPlayer
+*/
+GameData.classes.Scenario.prototype.setPlayerRelation = function(firstPlayer, secondPlayer, relation) {
+	if(!this.players.relations[firstPlayer.resref]) {
+		this.players.relations[firstPlayer.resref] = {};
+	}
+	this.players.relations[firstPlayer.resref][secondPlayer.resref] = relation;
 };
 
 /*
@@ -438,125 +485,169 @@ GameData.classes.Scenario.prototype.startPlayerTurn = function(player) {
 GameData.classes.Scenario.prototype.getActivePlayer = function() {
 	return this.actingPlayer;
 };
-GameData.classes.Pathfinding_Node = function(x, y, parentNode) {
+GameData.classes.Pathfinding_Node = function(x, y, unit, map, parentNode) {
+	// Set base data
 	this.x = x;
 	this.y = y;
-	this.parent = parentNode;
-	this.baseCost = 0;
-	this.terrainCost = 0;
-	this.manhattanCost = 0;
+	this.unit = unit;
+	this.map = map;
 
+	// Set costs
+	this.baseCost = 0;
+	this.terrainCost = this.unit.getMoveCost(this.map, this.x, this.y);
+	this.manhattanCost = 0;
+	this.pathCost = 0;
+
+	// Set additional data
+	this.steps = 0;
+	this.parent = null;
+	if(parentNode) {
+		this.setParent(parentNode);
+	}
+
+	// Is on the open list
+	this.open = true;
+
+	// Define properties
 	Object.defineProperties(this, {
-		"finalCost": {
+		"mixedCost": {
 			get() {
 				if(this.terrainCost === -1) {
 					return -1;
 				}
 				return this.baseCost + this.terrainCost + this.manhattanCost;
 			}
+		},
+		"finalCost": {
+			get() {
+				if(this.terrainCost === -1) {
+					return -1;
+				}
+				return this.baseCost + this.terrainCost + this.manhattanCost + this.pathCost;
+			}
 		}
 	});
 };
 GameData.classes.Pathfinding_Node.prototype.constructor = GameData.classes.Pathfinding_Node;
-GameData.classes.Pathfinder = function(currentX, currentY, targetX, targetY, unit, potentialPlaces) {
-	this.unit = unit;
-	this.map = this.unit.map;
-	this.range = (this.unit.actionPoints);
 
-	this.potentialPlaces = null;
-	if(potentialPlaces) {
-		this.potentialPlaces = potentialPlaces;
-	}
+/*
+	method: setParent(node)
+	Sets this node's parent to another node, recalculating some things
+*/
+GameData.classes.Pathfinding_Node.prototype.setParent = function(node) {
+	this.parent = node;
 
-	// Initialize nodes
-	// this.nodes = [];
-	// var a, placePos;
-	// for(a = 0;a < this.map.map.width * this.map.map.height;a++) {
-	// 	placePos = {
-	// 		x: (a % this.map.map.width),
-	// 		y: Math.floor(a / this.map.map.width)
-	// 	};
-	// 	this.addNode(placePos.x, placePos.y);
+	// Add to step count
+	this.steps = this.parent.steps + 1;
+
+	// Recalculate base cost
+	this.baseCost = this.parent.baseCost + this.terrainCost;
+	// if(this.x == this.parent.x || this.y == this.parent.y) {
+	// 	this.baseCost = this.parent.baseCost + GameData.pathfinding.baseCosts.orthogonal;
 	// }
+};
+GameData.classes.Pathfinder_Path = function(toObj, owner, maxRange) {
+	if(maxRange === undefined) {
+		maxRange = -1;
+	}
+	this.maxRange = maxRange;
+	// Set basic data
+	this.owner = owner;
+	this.originNode = null;
+	this.finalNode = null;
+	this.finished = false;
+	this.greedy = false;
+
+	this.target = {
+		x: toObj.x,
+		y: toObj.y
+	};
+
+	// Create lists: open, closed and nodes
+	// nodes will contain ALL the nodes
 	this.open = [];
 	this.closed = [];
-	this.originNode = null;
-	this.target = {
-		x: targetX,
-		y: targetY
-	};
-	this.foundTarget = false;
-
-	this.startSearch(currentX, currentY);
-};
-GameData.classes.Pathfinder.prototype.constructor = GameData.classes.Pathfinder;
-
-GameData.classes.Pathfinder.prototype.addNode = function(list, x, y, parent) {
-	if(x < 0 || x > this.map.width ||
-		y < 0 || y > this.map.height) {
-		return null;
+	var arr;
+	this.nodes = [];
+	while(this.nodes.length < this.owner.map.width) {
+		arr = [];
+		while(arr.length < this.owner.map.height) {
+			arr.push(null);
+		}
+		this.nodes.push(arr);
 	}
+
+	// Start the search
+	this.startSearch();
+};
+GameData.classes.Pathfinder_Path.prototype.constructor = GameData.classes.Pathfinder_Path;
+
+/*
+	method: addNode
+	Adds a node to this path
+*/
+GameData.classes.Pathfinder_Path.prototype.addNode = function(list, x, y, parent) {
+	// Determine parameters
 	if(parent === undefined) {
 		parent = null;
 	}
 
-	var obj = new GameData.classes.Pathfinding_Node(x, y, parent);
+	// Only if within range
+	if((parent && this.maxRange !== -1 && parent.steps < this.maxRange) || this.maxRange === -1 || !parent) {
+		var obj = new GameData.classes.Pathfinding_Node(x, y, this.owner.unit, this.owner.unit.map, parent);
 
-	// Set movement cost
-	if(parent) {
-		// Set base cost
-		obj.baseCost = GameData.pathfinding.baseCosts.orthogonal;
-		if(parent.x != obj.x && parent.y != obj.y) {
-			obj.baseCost = GameData.pathfinding.baseCosts.diagonal;
+		// Set movement cost
+		if(parent) {
+			// Set manhattan cost
+			obj.manhattanCost = this.owner.getDistanceBetween(
+				{
+					x: obj.x,
+					y: obj.y
+				}, {
+					x: this.target.x,
+					y: this.target.y
+				});
 		}
-		// Set terrain cost
-		obj.terrainCost = this.map.getMoveCost(x, y);
-		// Set manhattan cost
-		obj.manhattanCost = this.getDistanceBetween(
-			{
-				x: this.originNode.x,
-				y: this.originNode.y
-			}, {
-				x: this.target.x,
-				y: this.target.y
-			}) * 10;
-	}
 
-	// Add to list
-	list.push(obj);
-	return obj;
+		// Add to list
+		list.push(obj);
+		this.nodes[x][y] = obj;
+		return obj;
+	}
+	return null;
 };
 
-GameData.classes.Pathfinder.prototype.addToClosed = function(node) {
+/*
+	method: addToClosed
+	Transfers a node from the open list to the closed list
+*/
+GameData.classes.Pathfinder_Path.prototype.addToClosed = function(node) {
 	var openIndex = this.getNodeIndex(this.open, node.x, node.y);
 	if(openIndex >= 0) {
 		this.closed.push(node);
 		this.open.splice(openIndex, 1);
-		// Add to potential places
-		if(this.potentialPlaces) {
-			var a, getNode, canPlace = true;
-			for(a = 0;a < this.potentialPlaces.length && canPlace;a++) {
-				getNode = this.potentialPlaces[a];
-				if(getNode.x == node.x && getNode.y == node.y) {
-					canPlace = false;
-				}
-			}
-			if(canPlace) {
-				this.potentialPlaces.push(node);
-			}
-		}
+		node.open = false;
 	}
 };
 
-GameData.classes.Pathfinder.prototype.getDistanceBetween = function(first, second) {
-	return Math.abs(second.x - first.x) + Math.abs(second.y - first.y);
+/*
+	method: addToOpen
+	Like addToClosed, except it goes the other way around
+*/
+GameData.classes.Pathfinder_Path.prototype.addToOpen = function(node) {
+	var closedIndex = this.getNodeIndex(this.closed, node.x, node.y);
+	if(closedIndex >= 0) {
+		this.open.push(node);
+		this.closed.splice(closedIndex, 1);
+		node.open = true;
+	}
 };
 
 /*
-	method: getNode(list, x, y)
+	method: getListNode(list, x, y)
 	Returns the node at the specified coordinates on the specified list
 */
-GameData.classes.Pathfinder.prototype.getNode = function(list, x, y) {
+GameData.classes.Pathfinder_Path.prototype.getListNode = function(list, x, y) {
 	var a, node;
 	for(a = 0;a < list.length;a++) {
 		node = list[a];
@@ -567,7 +658,21 @@ GameData.classes.Pathfinder.prototype.getNode = function(list, x, y) {
 	return null;
 };
 
-GameData.classes.Pathfinder.prototype.getNodeIndex = function(list, x, y) {
+/*
+	method: getNode(x, y)
+	Gets the node at the specified coordinates of the map
+	Returns null if no node exists there (yet)
+*/
+GameData.classes.Pathfinder_Path.prototype.getNode = function(x, y) {
+	return this.nodes[x][y];
+};
+
+/*
+	method: getNodeIndex(list, x, y)
+	Returns the index of the node in the specified list, or -1
+	if no node was found on that list
+*/
+GameData.classes.Pathfinder_Path.prototype.getNodeIndex = function(list, x, y) {
 	var a, node;
 	for(a = 0;a < list.length;a++) {
 		node = list[a];
@@ -578,8 +683,12 @@ GameData.classes.Pathfinder.prototype.getNodeIndex = function(list, x, y) {
 	return -1;
 };
 
-GameData.classes.Pathfinder.prototype.startSearch = function(originX, originY) {
-	var node = this.addNode(this.open, originX, originY);
+/*
+	method: startSearch
+	Starts a search from this path's origin
+*/
+GameData.classes.Pathfinder_Path.prototype.startSearch = function() {
+	var node = this.addNode(this.open, this.owner.origin.x, this.owner.origin.y);
 	this.originNode = node;
 	this.addAdjacentNodes(node);
 	this.addToClosed(node);
@@ -588,9 +697,16 @@ GameData.classes.Pathfinder.prototype.startSearch = function(originX, originY) {
 	if(node) {
 		this.continueSearch(node);
 	}
+	else {
+		this.endSearch(node);
+	}
 };
 
-GameData.classes.Pathfinder.prototype.continueSearch = function(newNode) {
+/*
+	method: continueSearch(newNode)
+	Continues the search for the target, starting at newNode
+*/
+GameData.classes.Pathfinder_Path.prototype.continueSearch = function(newNode) {
 	this.addAdjacentNodes(newNode);
 	this.addToClosed(newNode);
 	// Check for end
@@ -601,29 +717,53 @@ GameData.classes.Pathfinder.prototype.continueSearch = function(newNode) {
 
 	// Continue the search
 	var adjNodes = this.getAdjacentNodes(newNode);
-	var a, node = null;
-	for(a = 0;a < adjNodes.length && !node;a++) {
+	var a, node = newNode;
+	// Get lowest base cost node
+	for(a = 0;a < adjNodes.length;a++) {
 		if(adjNodes[a].baseCost < newNode.baseCost) {
 			node = adjNodes[a];
 		}
 	}
 
-	if(node) {
-		node.parent = newNode;
-		this.continueSearch(node);
-	}
-	else if(adjNodes.length > 0) {
+	// if(node !== newNode) {
+	// 	// node.setParent(newNode);
+	// 	this.continueSearch(node);
+	// }
+	if(adjNodes.length > 0) {
 		node = this.getCheapestNode(adjNodes);
 		this.continueSearch(node);
+	}
+	else {
+		if(this.greedy) {
+			return true;
+		}
+		else if(newNode.parent) {
+			// Go back one step and try again
+			var prevNode = newNode.parent;
+			this.addToOpen(prevNode);
+			this.continueSearch(prevNode);
+		}
+		else {
+			this.endSearch(this.originNode);
+		}
 	}
 	return false;
 };
 
-GameData.classes.Pathfinder.prototype.endSearch = function(endNode) {
-	this.foundTarget = true;
+/*
+	method: endSearch(endNode)
+	Marks the end of the search, and the final node
+*/
+GameData.classes.Pathfinder_Path.prototype.endSearch = function(endNode) {
+	this.finished = true;
+	this.finalNode = endNode;
 };
 
-GameData.classes.Pathfinder.prototype.addAdjacentNodes = function(centerNode) {
+/*
+	method: addAdjacentNodes(centerNode)
+	Adds adjacent nodes to the center node
+*/
+GameData.classes.Pathfinder_Path.prototype.addAdjacentNodes = function(centerNode) {
 	var a, b, tempPos;
 	for(a = -1;a <= 1;a++) {
 		for(b = -1;b <= 1;b++) {
@@ -631,32 +771,42 @@ GameData.classes.Pathfinder.prototype.addAdjacentNodes = function(centerNode) {
 				x: centerNode.x + a,
 				y: centerNode.y + b
 			};
-			if((tempPos.x >= this.originNode.x - this.range && tempPos.x <= this.originNode.x + this.range &&
-				tempPos.y >= this.originNode.y - this.range && tempPos.y <= this.originNode.y + this.range) &&
-				!this.getNode(this.open, tempPos.x, tempPos.y) && !this.getNode(this.closed, tempPos.x, tempPos.y)) {
-				// Still check to see if the terrain cost of the new square would be -1(i.e. a wall)
-				if(this.map.getMoveCost(tempPos.x, tempPos.y) >= 0) {
-					this.addNode(this.open, tempPos.x, tempPos.y, centerNode);
+			if(tempPos.x >= 0 && tempPos.x < this.nodes.length &&
+				tempPos.y >= 0 && tempPos.y < this.nodes[0].length) {
+				if(!this.getNode(tempPos.x, tempPos.y)) {
+					// Still check to see if the terrain cost of the new square would be -1(i.e. a wall)
+					if(this.owner.map.getMoveCost(tempPos.x, tempPos.y) >= 0) {
+						this.addNode(this.open, tempPos.x, tempPos.y, centerNode);
+					}
 				}
 			}
 		}
 	}
 };
 
-GameData.classes.Pathfinder.prototype.getAdjacentNodes = function(centerNode) {
+/*
+	method: getAdjacentNodes(centerNode)
+	Returns an array containing the nodes on the open list and
+	adjacent to centerNode
+*/
+GameData.classes.Pathfinder_Path.prototype.getAdjacentNodes = function(centerNode) {
 	var result = [], a, node;
 	for(a = 0;a < this.open.length;a++) {
 		node = this.open[a];
 		if(node !== centerNode &&
 			node.x >= centerNode.x-1 && node.x <= centerNode.x+1 &&
-			node.y >= centerNode.y-1 && node.y <= centerNode.y-1) {
+			node.y >= centerNode.y-1 && node.y <= centerNode.y+1) {
 			result.push(node);
 		}
 	}
 	return result;
 };
 
-GameData.classes.Pathfinder.prototype.getCheapestNode = function(list) {
+/*
+	method: getCheapestNode(list)
+	Returns the cheapest node on the specified list
+*/
+GameData.classes.Pathfinder_Path.prototype.getCheapestNode = function(list) {
 	list.sort(function(a, b) {
 		if(a.finalCost < b.finalCost) {
 			return -1;
@@ -668,6 +818,90 @@ GameData.classes.Pathfinder.prototype.getCheapestNode = function(list) {
 	});
 	return list[0];
 };
+GameData.classes.Pathfinder = function(currentX, currentY, unit, options) {
+	// Check parameters
+	if(options === undefined) {
+		options = {};
+	}
+
+	// Set stuff
+	this.unit = unit;
+	this.map = this.unit.map;
+
+	// Set options
+	// Set range
+	this.range = {min: -1, max: -1};
+	if(options.maxRange) {
+		this.range.max = options.maxRange;
+	}
+	if(options.minRange) {
+		this.range.min = options.minRange;
+	}
+
+	// Initialize paths
+	this.paths = [];
+
+	// Initialize additional data
+	this.origin = {
+		x: currentX,
+		y: currentY
+	};
+};
+GameData.classes.Pathfinder.prototype.constructor = GameData.classes.Pathfinder;
+
+GameData.classes.Pathfinder.prototype.addPath = function(targetX, targetY, maxRange) {
+	// Only if the target square is even accessible
+	if(this.unit.canAccessTile(this.map, targetX, targetY)) {
+		var path = new GameData.classes.Pathfinder_Path({x: targetX, y: targetY}, this, maxRange);
+		this.paths.push(path);
+	}
+};
+
+/*
+	method: getDistanceBetween(first, second)
+	Returns the (manhattan) distance between two nodes
+*/
+GameData.classes.Pathfinder.prototype.getDistanceBetween = function(first, second) {
+	return Math.abs(second.x - first.x) + Math.abs(second.y - first.y);
+};
+
+/*
+	method: getConsolidatedNodes
+	Returns a list of all the uniquely-positioned nodes (in the closed list of their path)
+*/
+GameData.classes.Pathfinder.prototype.getConsolidatedNodes = function() {
+	var list = [], a, b, c, matched, path, node, checkNode;
+	for(a = 0;a < this.paths.length;a++) {
+		path = this.paths[a];
+		for(b = 0;b < path.closed.length;b++) {
+			node = path.closed[b];
+			matched = false;
+			for(c = 0;c < list.length && !matched;c++) {
+				checkNode = list[c];
+				if(checkNode.x == node.x && checkNode.y == node.y) {
+					matched = true;
+				}
+			}
+			if(!matched) {
+				list.push(node);
+			}
+		}
+	}
+	return list;
+};
+
+/*
+	method: getPotentialSquares(minRange, maxRange)
+	Returns a list of the potential squares, considering minRange and maxRange
+*/
+GameData.classes.Pathfinder.prototype.getPotentialSquares = function() {
+	var a, b;
+	for(a = 0;a < this.map.width;a++) {
+		for(b = 0;b < this.map.height;b++) {
+			this.addPath(a, b, this.range.max);
+		}
+	}
+};
 GameData.classes.Player = function(faction) {
 	this.units = {
 		list: []
@@ -675,7 +909,16 @@ GameData.classes.Player = function(faction) {
 	this.baseFaction = faction;
 	this.index = 0;
 	this.visible = true;
-	this.acting = true;
+	this.acting = false;
+
+	// Define properties
+	Object.defineProperties(this, {
+		"scenario": {
+			get() {
+				return GameManager.game.scenario.current;
+			}
+		}
+	})
 };
 GameData.classes.Player.prototype.constructor = GameData.classes.Player;
 
@@ -699,6 +942,20 @@ GameData.classes.Player.prototype.startTurn = function() {
 		unit = this.units.list[a];
 		unit.actionPoints = unit.maxActionPoints;
 	}
+};
+
+/*
+	method: getOpinion(targetPlayer)
+	Returns this player's opinion of targetPlayer
+*/
+GameData.classes.Player.prototype.getOpinion = function(targetPlayer) {
+	if(targetPlayer === this) {
+		return GameData.opinion.SAME_OWNER;
+	}
+	if(this.scenario.players.relations[this.resref] && this.scenario.players.relations[this.resref][targetPlayer.resref]) {
+		return this.scenario.players.relations[this.resref][targetPlayer.resref];
+	}
+	return GameData.opinion.UNKNOWN;
 };
 GameData.classes.Item = function(resref) {
 	this.resref = resref;
@@ -1088,6 +1345,21 @@ GameData.classes.Unit.prototype.ownedByPlayer = function(player) {
 };
 
 /*
+	method: getOwners
+	Returns an array containing this unit's owners
+*/
+GameData.classes.Unit.prototype.getOwners = function() {
+	var a, plr, result = [];
+	for(a = 0;a < this.scenario.players.list.length;a++) {
+		plr = this.scenario.players.list[a];
+		if(this.ownedByPlayer(plr)) {
+			result.push(plr);
+		}
+	}
+	return result;
+};
+
+/*
 	method: move(x, y)
 	Moves the unit to the specified x and y position(in tiles)
 */
@@ -1123,20 +1395,27 @@ GameData.classes.Unit.prototype.select = function() {
 	this.scenario.selectedUnit = this;
 
 	// Set up pathfinder
-	var paths = [], a, halfRange = Math.ceil(this.actionPoints * 0.5), pathfinder, potentialSpaces = [];
-	// Get rectangle borders
-	// H-borders
-	for(a = -halfRange;a < halfRange;a++) {
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y - halfRange, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + a, this.tilePos.y + halfRange, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x - halfRange, this.tilePos.y + a, this, potentialSpaces));
-		paths.push(new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this.tilePos.x + halfRange, this.tilePos.y + a, this, potentialSpaces));
-	}
+	var pathfinder, a, halfRange = this.actionPoints;
+	pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this, {
+		maxRange: halfRange
+	});
+	// Get potential squares
 	// Place movement markers
-	var node, layer;
-	for(a = 0;a < potentialSpaces.length;a++) {
-		node = potentialSpaces[a];
+	var list = pathfinder.getConsolidatedNodes(), node;
+	for(a = 0;a < list.length;a++) {
+		node = list[a];
 		new GameData.classes.Tile_Marker(node.x, node.y, "movement", this.map);
+	}
+
+	var unit = this.getNearestEnemy();
+	if(unit) {
+		pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this);
+		pathfinder.addPath(unit.tilePos.x, unit.tilePos.y);
+		list = pathfinder.getConsolidatedNodes();
+		for(a = 0;a < list.length;a++) {
+			node = list[a];
+			new GameData.classes.Tile_Marker(node.x, node.y, "movement", this.map);
+		}
 	}
 };
 
@@ -1147,6 +1426,114 @@ GameData.classes.Unit.prototype.select = function() {
 GameData.classes.Unit.prototype.deselect = function() {
 	this.selected = false;
 	this.scenario.selectedUnit = null;
+};
+
+/*
+	method: canAccessTile(tileX, tileY)
+	Returns true if the character can walk over the specified tile position
+*/
+GameData.classes.Unit.prototype.canAccessTile = function(map, tileX, tileY) {
+	var cost = this.getMoveCost(map, tileX, tileY);
+	if(cost === -1) {
+		return false;
+	}
+	return true;
+};
+
+/*
+	method: getMoveCost(map, tileX, tileY)
+	Returns the move point cost for this unit to walk over the specified tile
+*/
+GameData.classes.Unit.prototype.getMoveCost = function(map, tileX, tileY) {
+	var baseCost = map.getMoveCost(tileX, tileY);
+	return baseCost;
+};
+
+/*
+	method: getOpinion(targetUnit)
+	Returns the opinion of the target unit
+	Will be one of these constants:
+	GameData.opinion.HOSTILE
+	GameData.opinion.NEUTRAL
+	GameData.opinion.ALLIED
+	GameData.opinion.SAME_OWNER
+	GameData.opinion.UNKNOWN
+*/
+GameData.classes.Unit.prototype.getOpinion = function(targetUnit) {
+	var myOwners = this.getOwners();
+	var owners = targetUnit.getOwners();
+	var a, b, myPlr, plr, leaningOpinion = GameData.opinion.UNKNOWN, checkOpinion;
+
+	// Get opinion from target's owner(s)
+	for(a = 0;a < owners.length;a++) {
+		plr = owners[a];
+		for(b = 0;b < myOwners.length;b++) {
+			myPlr = myOwners[b];
+			checkOpinion = myPlr.getOpinion(plr);
+			switch(checkOpinion) {
+				case GameData.opinion.SAME_OWNER:
+					return GameData.opinion.SAME_OWNER;
+					break;
+				case GameData.opinion.NEUTRAL:
+					if(leaningOpinion == GameData.opinion.UNKNOWN) {
+						leaningOpinion = GameData.opinion.NEUTRAL;
+					}
+					break;
+				case GameData.opinion.HOSTILE:
+					if(leaningOpinion == GameData.opinion.UNKNOWN || leaningOpinion == GameData.opinion.NEUTRAL) {
+						leaningOpinion = GameData.opinion.HOSTILE;
+					}
+					break;
+				case GameData.opinion.ALLIED:
+					if(leaningOpinion == GameData.opinion.UNKNOWN || leaningOpinion == GameData.opinion.NEUTRAL || leaningOpinion == GameData.opinion.HOSTILE) {
+						leaningOpinion = GameData.opinion.ALLIED;
+					}
+					break;
+			}
+		}
+	}
+
+	// Return result
+	return leaningOpinion;
+};
+
+/*
+	method: getNearestEnemy
+	Returns the nearest hostile unit to this player
+*/
+GameData.classes.Unit.prototype.getNearestEnemy = function() {
+	var list = this.map.getUnitList(this, {
+		noUnknown: true,
+		noOwned: true,
+		noAllied: true,
+		noNeutral: true
+	});
+	
+	// Get paths to unit
+	var pathList = [];
+	var a, pathfinder, path, unit;
+	for(a = 0;a < list.length;a++) {
+		unit = list[a];
+		pathfinder = new GameData.classes.Pathfinder(this.tilePos.x, this.tilePos.y, this);
+		pathfinder.addPath(unit.tilePos.x, unit.tilePos.y);
+		path = pathfinder.paths[0];
+		pathList.push({
+			unit: unit,
+			distance: path.finalNode.steps
+		});
+	}
+	// Sort list
+	pathList.sort(function(a, b) {
+		if(a.distance > b.distance) {
+			return 1;
+		}
+		if(a.distance < b.distance) {
+			return -1;
+		}
+		return 0;
+	});
+
+	return pathList[0].unit;
 };
 GameData.classes.Tile = function(tileset, tileX, tileY) {
 	// Extend Phaser.Image
@@ -1251,6 +1638,11 @@ GameData.classes.Map = function(baseMap, name) {
 		},
 		tilesets: [],
 		tilesetGIDRefs: {}
+	};
+
+	// Set up game object lists
+	this.gameObjects = {
+		units: []
 	};
 
 	// Define properties
@@ -1413,6 +1805,7 @@ GameData.classes.Map.prototype.spawnUnit = function(x, y, type, owner) {
 		unit.destroy();
 		return null;
 	}
+	this.gameObjects.units.push(unit);
 	return unit;
 };
 
@@ -1498,6 +1891,80 @@ GameData.classes.Map.prototype.getMoveCost = function(x, y) {
 	}
 
 	return value;
+};
+
+/*
+	method: getDistanceBetweenTiles(x1, y1, x2, y2)
+	Returns the manhattan distance between two tiles
+*/
+GameData.classes.Map.prototype.getDistanceBetweenTiles = function(x1, y1, x2, y2) {
+	return Math.abs(x2 - x1) + Math.abs(y2 - y1);
+};
+
+/*
+	method: getUnitList(originUnit, filters)
+	Returns a filtered list of all the units in the scenario.
+	The filters object may include the following:
+	noAllied: true or false (defaults false); Filters out allied units
+	noOwned: true or false (defaults false); Filters out owned units
+	noHostile: true or false (defaults to false); Filters out hostile units
+	noNeutral: true or false (defaults to false); Filters out neutral units
+	noUnknown: true or false (defaults to false); Filters out units with an unknown opinion
+*/
+GameData.classes.Map.prototype.getUnitList = function(originUnit, filters) {
+	var result = [];
+	// Preset data
+	if(filters === undefined) {
+		filters = {};
+	}
+	if(!filters.noAllied) {filters.noAllied = false;}
+	if(!filters.noOwned) {filters.noOwned = false;}
+	if(!filters.noHostile) {filters.noHostile = false;}
+	if(!filters.noNeutral) {filters.noNeutral = false;}
+	if(!filters.noUnkown) {filters.noUnkown = false;}
+
+	// Search
+	var a, unit, opinion, doAdd;
+	for(a = 0;a < this.gameObjects.units.length;a++) {
+		unit = this.gameObjects.units[a];
+		if(unit !== originUnit) {
+			doAdd = true;
+			opinion = originUnit.getOpinion(unit);
+
+			// Check hostile
+			if(opinion == GameData.opinion.HOSTILE && filters.noHostile) {
+				doAdd = false;
+			}
+
+			// Check allied
+			if(opinion == GameData.opinion.ALLIED && filters.noAllied) {
+				doAdd = false;
+			}
+
+			// Check neutral
+			if(opinion == GameData.opinion.NEUTRAL && filters.noNeutral) {
+				doAdd = false;
+			}
+
+			// Check unknown
+			if(opinion == GameData.opinion.UNKNOWN && filters.noUnknown) {
+				doAdd = false;
+			}
+
+			// Check owned
+			if(opinion == GameData.opinion.SAME_OWNER && filters.noOwned) {
+				doAdd = false;
+			}
+
+			// Append result
+			if(doAdd) {
+				result.push(unit);
+			}
+		}
+	}
+
+	// Return results
+	return result;
 };
 GameData.classes.Layer = function(map, width, height, depth) {
 	// Extend Phaser.Sprite
